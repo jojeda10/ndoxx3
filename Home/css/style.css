@@ -1,0 +1,23 @@
+/* add your custom styles here */
+.itemGridUpload {
+    box-shadow: 1px 1px 5px #888888 !important;
+}
+
+.sapMITBContent {
+    background-color: #ebf0f56b;
+    border-bottom: .125rem solid #d1e0ee;
+}
+
+.sapFShellBar {
+    height: 3rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    border-style-bottom: thick green;
+    border-bottom-style: inset;
+    border-bottom-width: thin;
+}

@@ -1,0 +1,17 @@
+/* add your custom styles here */
+.sapUiDSC.sapUiContentPadding > div:first-child {
+    padding: 0rem !important; 
+    box-sizing: border-box;
+}
+
+.sapUiDSC.sapUiContentPadding > aside {
+    padding: 0rem !important; 
+    box-sizing: border-box;
+}
+
+.sapUiDSC.sapUiContentPadding > aside {
+    padding: 0rem !important;
+    box-sizing: border-box;
+    border-block: grey;
+    border-left: 1px solid #d9d9d9;
+}

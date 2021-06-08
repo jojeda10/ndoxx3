@@ -1,0 +1,79 @@
+<mvc:View controllerName="com.nubexx.ndoxx.Drive.controller.Worklist" xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:semantic="sap.f.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc">
+	<l:DynamicSideContent id="DynamicSideContent" class="sapUiDSCExplored sapUiContentPadding" containerQuery="true" sideContentFallDown="BelowM" breakpointChanged="handleBreakpointChangeEvent">
+		<!--<NavContainer id="pageContainer" initialPage="page2" class="nubexxPageContainer" xmlns:core="sap.ui.core">-->
+		<!--	<pages>-->
+		<VBox width="100%" class="containerUpload">
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.nubexx.ndoxx.Drive.view.fragments.dialog.FilesProgressIndicator" type="XML" />
+			<OverflowToolbar>
+				<HBox class="sapUiSmallMarginBegin">
+					<Breadcrumbs id="breadcrumbs" class="sapUiTinyMarginTop" currentLocationText="{history>/currentLocationText}" links="{history>/history}" visible="{= ${app>/selection} === 'folders' ? true : false}">
+						<Link press="onBreadcrumbPress" text="{history>name}" />
+					</Breadcrumbs>
+					<Text id="selectionText" text="Results" visible="{= ${app>/selection} === 'folders' ? false : true}"></Text>
+				</HBox>
+				<ToolbarSpacer />
+				<SegmentedButton selectedKey="kids" selectionChange="onDisplayTypeChanged">
+					<items>
+						<SegmentedButtonItem key="grid" icon="sap-icon://grid" />
+						<SegmentedButtonItem key="list" icon="sap-icon://menu2"/>
+					</items>
+				</SegmentedButton>
+				<Button id="createNewButton" text="New" icon="sap-icon://add" type="Emphasized" press="onCreateNew" />
+				<Button text="" type="Transparent" icon="sap-icon://refresh" press="onRefreshAll" />
+				<Button text="" type="Transparent" icon="sap-icon://message-information" press="onInfoDisplay" enabled="{app>/infoDisplayActive}" />
+			</OverflowToolbar>
+			<VBox visible="{= ${app>/displayType} === 'list' }">
+				<Table id="idListHierarchyView" class="hierarchyTable" mode="None" selectionChange="onTableSelectionChange" busyIndicatorDelay="0" enableBusyIndicator="true" backgroundDesign="{appState>/backgroundDesign}">
+					<columns>
+						<Column hAlign="Center" width="3em"></Column>
+						<Column></Column>
+						<Column width="7em" hAlign="Center"></Column>
+					</columns>
+				</Table>
+			</VBox>
+			<VBox id="grids">
+			<VBox>  
+				<VBox visible="{currentFolder>/HasChildrenFolders}">
+					<FlexBox alignItems="Start" justifyContent="SpaceBetween">
+						<Text text="Folders" class="sapUiTinyMarginTop sapUiSmallMarginBegin"></Text>
+						<Button icon="sap-icon://sort" type="Transparent" class="sortButton"></Button>
+					</FlexBox>
+					<f:GridContainer id="gridFolder" snapToRow="true" class="gridUpload">
+						<f:layout>
+							<f:GridContainerSettings rowSize="0.5rem" columnSize="5rem" gap="1rem" />
+						</f:layout>
+						<f:layoutS>
+							<f:GridContainerSettings rowSize="0.5rem" columnSize="5rem" gap="0.5rem" />
+						</f:layoutS>
+					</f:GridContainer>
+				</VBox>
+			</VBox>
+			<VBox>
+				<FlexBox alignItems="Start" justifyContent="SpaceBetween" visible="{currentFolder>/HasChildrenDocuments}">
+					<Text text="Documents" class="sapUiSmallMarginBegin"></Text>
+					<Button icon="sap-icon://sort" type="Transparent" class="sortButton"></Button>
+				</FlexBox>
+
+				<f:GridContainer id="gridUpload" snapToRow="true" class="gridUpload">
+					<f:layout>
+						<f:GridContainerSettings rowSize="5rem" columnSize="5rem" gap="1rem" />
+					</f:layout>
+					<f:layoutS>
+						<f:GridContainerSettings rowSize="5rem" columnSize="5rem" gap="0.5rem" />
+					</f:layoutS>
+				</f:GridContainer>
+			</VBox>
+		</VBox>
+		</VBox>
+		<!--	</pages>-->
+		<!--</NavContainer>-->
+		<l:sideContent>
+			<Toolbar>
+				<Title text="{app>/currentFolderText}" class="sapUiTinyMarginBegin" />
+				<ToolbarSpacer />
+				<Button type="Transparent" press="onInfoClose" visible="{= !${media>/phone}}" icon="sap-icon://decline" />
+			</Toolbar>
+			<l:VerticalLayout></l:VerticalLayout>
+		</l:sideContent>
+	</l:DynamicSideContent>
+</mvc:View>

@@ -1,0 +1,99 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:card="sap.f.cards" xmlns:f="sap.f" xmlns:lab="it.designfuture.chartjs"
+	xmlns:w="sap.ui.integration.widgets">
+	<ScrollContainer id="test" class="sapUiSmallMargin" height="100%" width="100%" vertical="true" focusable="true">
+		<f:GridContainer id="grid2" snapToRow="true">
+			<f:layout>
+				<f:GridContainerSettings rowSize="5rem" columnSize="5rem" gap="1rem"/>
+			</f:layout>
+			<f:layoutS>
+				<f:GridContainerSettings rowSize="5rem" columnSize="5rem" gap="0.5rem"/>
+			</f:layoutS>
+			<f:Card >
+				<f:layoutData>
+					<f:GridContainerItemLayoutData columns="6" rows="5" minRows="4"/>
+				</f:layoutData>
+				<f:header>
+					<card:NumericHeader title="Employees" subtitle="On leave" details="Bla bla bla" number="55" scale="EUR" statusText="Test" state="Critical"
+						unitOfMeasurement="EUR"/>
+				</f:header>
+				<f:content>
+					<lab:LineChartJS id="line_chart" datasets="{temp>/lineChart/datasets}" labels="{temp>/lineChart/labels}" titleDisplay="true"
+						titleText="Line Chart Example" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover" onClick="onClick"
+						onHover="onHover" tooltipEnabled="true" onAnimationProgress="onAnimationProgress" onAnimationComplete="onAnimationComplete" showLines="true"
+						spanGaps="true" class=""></lab:LineChartJS>
+				</f:content>
+			</f:Card>
+			<f:Card >
+				<f:layoutData>
+					<f:GridContainerItemLayoutData columns="6" rows="5" minRows="4"/>
+				</f:layoutData>
+				<f:header>
+					<card:NumericHeader title="Employees" subtitle="On leave" details="Bla bla bla" number="55" scale="EUR" statusText="Test" state="Critical"
+						unitOfMeasurement="EUR"/>
+				</f:header>
+				<f:content>
+					<lab:BarChartJS id="bar_chart" datasets="{temp>/barChart/datasets}" labels="{temp>/barChart/labels}" titleDisplay="true"
+						titleText="Bar Chart Example" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover" onClick="onClick"
+						onHover="onHover" tooltipEnabled="true" onAnimationProgress="onAnimationProgress" onAnimationComplete="onAnimationComplete"
+						isHorizontal="false"></lab:BarChartJS>
+				</f:content>
+			</f:Card>
+			<f:Card >
+				<f:layoutData>
+					<f:GridContainerItemLayoutData columns="6" rows="7" minRows="4"/>
+				</f:layoutData>
+				<f:header>
+					<card:NumericHeader title="Mandatory documents" subtitle="% Completeness"/>
+				</f:header>
+				<f:content>
+					<lab:RadarChartJS id="radar_chart" datasets="{temp>/radarChart/datasets}" labels="{temp>/radarChart/labels}" titleDisplay="true"
+						titleText="" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover" onClick="onClick" onHover="onHover"
+						tooltipEnabled="true" onAnimationProgress="onAnimationProgress" onAnimationComplete="onAnimationComplete"></lab:RadarChartJS>
+				</f:content>
+			</f:Card>
+			<f:Card >
+				<f:layoutData>
+					<f:GridContainerItemLayoutData columns="6" rows="8" minRows="7"/>
+				</f:layoutData>
+				<f:header>
+					<card:NumericHeader title="Employees" subtitle="On leave" details="Bla bla bla" number="55" scale="EUR" statusText="Test" state="Critical"
+						unitOfMeasurement="EUR"/>
+				</f:header>
+				<f:content>
+					<lab:PolarAreaChartJS id="polar_area_chart" datasets="{temp>/polarAreaChart/datasets}" labels="{temp>/polarAreaChart/labels}"
+						titleDisplay="true" titleText="Polar Area Chart Example" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover"
+						onClick="onClick" onHover="onHover" tooltipEnabled="true" onAnimationProgress="onAnimationProgress"
+						onAnimationComplete="onAnimationComplete"></lab:PolarAreaChartJS>
+				</f:content>
+			</f:Card>
+			<f:Card >
+				<f:layoutData>
+					<f:GridContainerItemLayoutData columns="6" rows="8" minRows="4"/>
+				</f:layoutData>
+				<f:header>
+					<card:NumericHeader title="Employees" subtitle="On leave" details="Bla bla bla" number="55" scale="EUR" statusText="Test" state="Critical"
+						unitOfMeasurement="EUR"/>
+				</f:header>
+				<f:content>
+					<lab:PieChartJS id="pie_chart" datasets="{temp>/pieChart/datasets}" labels="{temp>/pieChart/labels}" titleDisplay="true"
+						titleText="Pie Chart Example" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover" onClick="onClick"
+						onHover="onHover" tooltipEnabled="true" onAnimationProgress="onAnimationProgress" onAnimationComplete="onAnimationComplete"></lab:PieChartJS>
+				</f:content>
+			</f:Card>
+			<f:Card >
+				<f:layoutData>
+					<f:GridContainerItemLayoutData columns="6" rows="5" minRows="4"/>
+				</f:layoutData>
+				<f:header>
+					<card:NumericHeader title="Employees" subtitle="On leave" details="Bla bla bla" number="55" scale="EUR" statusText="Test" state="Critical"
+						unitOfMeasurement="EUR"/>
+				</f:header>
+				<f:content>
+					<lab:BubbleChartJS id="bubble_chart" datasets="{temp>/bubbleChart/datasets}" labels="{temp>/bubbleChart/labels}" titleDisplay="true"
+						titleText="Bubble Chart Example" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover" onClick="onClick"
+						onHover="onHover" tooltipEnabled="true" onAnimationProgress="onAnimationProgress" onAnimationComplete="onAnimationComplete"></lab:BubbleChartJS>
+				</f:content>
+			</f:Card>
+		</f:GridContainer>
+	</ScrollContainer>
+</core:FragmentDefinition>

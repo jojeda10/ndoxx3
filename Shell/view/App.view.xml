@@ -1,0 +1,42 @@
+<mvc:View controllerName="com.nubexx.ndoxx.Shell.controller.App" 	 class="sapUiSizeCompact" displayBlock="true" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc">
+	<!-- <SplitApp id="app"/> -->
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<!--<Page id="HomePage" class="sapUiResponsiveContentPadding">-->
+			<!--	<customHeader>-->
+			<f:ShellBar title="Home" secondTitle="Hochtief Deutschland" homeIcon="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Hochtief_logo.svg/1280px-Hochtief_logo.svg.png" showCopilot="false" showSearch="false" showNotifications="true" showProductSwitcher="false" notificationsNumber="5" menuButtonPressed="">
+				<!--<f:additionalContent>-->
+				<!--	<Button icon="sap-icon://menu2" type="Transparent" press="onPressMenu" class="btnMenu"/>-->
+				<!--</f:additionalContent>-->
+				<f:menu>
+					<Menu itemSelected="onAppSelect" title="ho">
+						<MenuItem id="Home" text="Home" icon="sap-icon://home" />
+						<MenuItem id="Projects" text="Projects" icon="sap-icon://eam-work-order" />
+						<MenuItem id="Drive" text="Drive" icon="sap-icon://cloud" />
+						<MenuItem id="Flows" text="Flows" icon="sap-icon://combine" />
+					</Menu>
+				</f:menu>
+				<f:searchManager>
+					<f:SearchManager id="nubexxSearch" class="nubexxSearch" search="handlerSearchFieldSearch" />
+				</f:searchManager>
+				<f:profile>
+					<f:Avatar initials="UI" />
+				</f:profile>
+			</f:ShellBar>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation id="navigation" expanded="true" itemSelect="onItemSelect">
+				<!--<tnt:item>-->
+				<!--	<tnt:NavigationList >-->
+				<!--		<tnt:NavigationListItem text="title" >-->
+							
+				<!--		</tnt:NavigationListItem>-->
+				<!--	</tnt:NavigationList>-->
+				<!--</tnt:item>-->
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<App id="app"/>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>

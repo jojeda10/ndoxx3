@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:nubexx="nubexx.ndoxx.ndoxx_ui_v2.controls">
+	<ResponsivePopover placement="Bottom" showHeader="false">
+		<nubexx:ProductSwitch change="onProductSwitchChange" >
+			<nubexx:items>
+				<nubexx:ProductSwitchItem id="drive" src="sap-icon://sap-box" title="Drive" targetSrc="www.google.com" target="_blank"/>
+				<nubexx:ProductSwitchItem id="postbox" src="sap-icon://inbox" title="Postbox" targetSrc="www.google.com" target="_blank"/>
+				<nubexx:ProductSwitchItem id="instructions" src="sap-icon://customer-order-entry" title="Instructions" targetSrc="www.google.com" target="_blank"/>
+				<nubexx:ProductSwitchItem id="customizing" src="sap-icon://action-settings" title="Customizing" targetSrc="www.google.com" target="_blank"/>
+			</nubexx:items>
+		</nubexx:ProductSwitch>
+	</ResponsivePopover>
+</core:FragmentDefinition>

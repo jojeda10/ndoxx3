@@ -1,0 +1,386 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:card="sap.f.cards" xmlns:f="sap.f" xmlns:lab="it.designfuture.chartjs"
+	xmlns:w="sap.ui.integration.widgets">
+	<!--<ScrollContainer id="id397" class="sapUiSmallMargin" height="60rem" width="100%" vertical="true" focusable="true">-->
+		<f:GridContainer id="grid1" snapToRow="true">
+			<f:layout>
+				<f:GridContainerSettings rowSize="5rem" columnSize="5rem" gap="1rem"/>
+			</f:layout>
+			<f:layoutS>
+				<f:GridContainerSettings rowSize="5rem" columnSize="5rem" gap="0.5rem"/>
+			</f:layoutS>
+
+			<f:Card class="itemGridUpload">
+				<f:layoutData>
+					<f:GridContainerItemLayoutData columns="8" rows="4"/>
+				</f:layoutData>
+				<f:header>
+					<card:Header title="Projekte" iconSrc="sap-icon://building"/>
+				</f:header>
+				<f:content>
+					<VBox height="100%" width="100%">
+						<SearchField liveChange=".onSearch" width="100%"/>
+						<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">
+							<SelectList width="100%">
+								<core:ListItem key="056465154" text="Bauprojekt 1" icon="sap-icon://building"/>
+								<core:ListItem key="5645645684" text="Bauprojekt 1" icon="sap-icon://building"/>
+							</SelectList>
+						</ScrollContainer>
+					</VBox>
+				</f:content>
+			</f:Card>
+
+			<f:Card class="itemGridUpload">
+				<f:layoutData>
+					<f:GridContainerItemLayoutData columns="4" rows="4"/>
+				</f:layoutData>
+				<f:header>
+					<card:Header title="Employees" iconSrc="sap-icon://employee"/>
+				</f:header>
+				<f:content>
+					<VBox height="100%" width="100%">
+						<SearchField liveChange=".onSearch" width="100%"/>
+						<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">
+							<SelectList width="100%">
+								<core:ListItem key="056465154" text="Daniel Radcliffe" icon="sap-icon://employee"/>
+								<core:ListItem key="5645645684" text="Julie Andrews" icon="sap-icon://employee"/>
+								<core:ListItem key="45345345" text="Thandie Newton" icon="sap-icon://employee"/>
+								<core:ListItem key="534654623" text="Daniel Craig" icon="sap-icon://employee"/>
+								<core:ListItem key="76987876" text="Gary Oldman" icon="sap-icon://employee"/>
+								<core:ListItem key="568685634" text="Kate Winslet" icon="sap-icon://employee"/>
+								<core:ListItem key="3467678967" text="Robert De Niro" icon="sap-icon://employee"/>
+								<core:ListItem key="67576" text="Chris Martin" icon="sap-icon://employee"/>
+								<core:ListItem key="45753479" text="Helena Bonham" icon="sap-icon://employee"/>
+								<core:ListItem key="00985347" text="Keira Knightley" icon="sap-icon://employee"/>
+								<core:ListItem key="64565444" text="James Righton" icon="sap-icon://employee"/>
+								<core:ListItem key="45567766" text="Rosamund Pike" icon="sap-icon://employee"/>
+								<core:ListItem key="88996643" text="Johnny Depp" icon="sap-icon://employee"/>
+								<core:ListItem key="11112234" text="Kaya Scodelario" icon="sap-icon://employee"/>
+							</SelectList>
+						</ScrollContainer>
+					</VBox>
+				</f:content>
+			</f:Card>
+		<!-- Document Tasks -->
+		<f:Card class="itemGridUpload">
+			<f:layoutData>
+				<f:GridContainerItemLayoutData minRows="4" columns="4"/>
+			</f:layoutData>
+			<f:header>
+				<card:Header title="Document Tasks" iconSrc="sap-icon://vds-file"/>
+			</f:header>
+			<f:content>
+				<VBox height="100%" width="100%">
+					<SearchField liveChange=".onSearch" width="100%"/>
+					<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">
+						<List width="100%" includeItemInSelection="true">
+							<items>
+								<StandardListItem type="Active" title="Transfer Pay Change - Emma Ward" description="Effective Date 04/14/2020"
+									tooltip="Transfer Pay Change - Emma Ward" icon="sap-icon://clinical-tast-tracker" iconDensityAware="false" iconInset="false"
+									class="TaskStandardListItem"/>
+								<StandardListItem type="Active" title="Transfer Pay Change - Emma Dorn" description="Effective Date 04/24/2020"
+									tooltip="Transfer Pay Change - Emma Ward" icon="sap-icon://clinical-tast-tracker" iconDensityAware="false" iconInset="false"
+									class="TaskStandardListItem"/>
+								<StandardListItem type="Active" title="Promotion Pay Change > 5% - Emma Dorn" description="Effective Date 05/18/2020"
+									tooltip="Transfer Pay Change - Emma Ward" icon="sap-icon://clinical-tast-tracker" iconDensityAware="false" iconInset="false"
+									class="TaskStandardListItem"/>
+								<StandardListItem type="Active" title="Promotion Pay Change > 5% - Emma Ward" description="Effective Date 05/25/2020"
+									tooltip="Transfer Pay Change - Emma Ward" icon="sap-icon://clinical-tast-tracker" iconDensityAware="false" iconInset="false"
+									class="TaskStandardListItem"/>
+							</items>
+						</List>
+					</ScrollContainer>
+				</VBox>
+			</f:content>
+		</f:Card>
+		<!-- Recently Accessed -->
+		<f:Card height="400px" class="itemGridUpload">
+			<f:layoutData>
+				<f:GridContainerItemLayoutData minRows="4" columns="4"/>
+			</f:layoutData>
+			<f:header>
+				<card:Header title="Recently Accessed" iconSrc="sap-icon://timesheet"/>
+			</f:header>
+			<f:content>
+				<VBox height="100%" width="100%">
+					<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">
+						<List width="100%" includeItemInSelection="true">
+							<items>
+								<StandardListItem type="Active" title="Custom View Searches" description="04/14/2020" icon="sap-icon://folder-blank"
+									iconDensityAware="false" iconInset="false"/>
+								<StandardListItem type="Active" title="Project Charters" description="04/14/2020" icon="sap-icon://folder-blank" iconDensityAware="false"
+									iconInset="false"/>
+								<StandardListItem type="Active" title="Capture.png" description="04/14/2020" icon="sap-icon://background" iconDensityAware="false"
+									iconInset="false"/>
+								<StandardListItem type="Active" title="Pump repair Manual" description="04/24/2020" icon="sap-icon://pdf-attachment"
+									iconDensityAware="false" iconInset="false" class="iconPdf"/>
+								<StandardListItem type="Active" title="Word document" description="05/18/2020" icon="sap-icon://doc-attachment" iconDensityAware="false"
+									iconInset="false"/>
+								<StandardListItem type="Active" title="Excel document" description="05/25/2020" icon="sap-icon://excel-attachment" iconDensityAware="false"
+									iconInset="false"/>
+							</items>
+						</List>
+					</ScrollContainer>
+				</VBox>
+			</f:content>
+		</f:Card>
+			<GenericTile press="onPress" header="Sales Fulfillment Application Title" subheader="Subtitle">
+				<layoutData>
+					<f:GridContainerItemLayoutData minRows="2" columns="2"/>
+				</layoutData>
+				<TileContent unit="EUR" footer="Current Quarter">
+					<ImageContent src="sap-icon://home-share"/>
+				</TileContent>
+			</GenericTile>
+			<SlideTile transitionTime="250" displayTime="7500">
+				<layoutData>
+					<f:GridContainerItemLayoutData minRows="2" columns="4"/>
+				</layoutData>
+				<GenericTile backgroundImage="https://lh3.google.com/u/0/d/1SRMku9AmwtWJp3SdZY2IhQlovjpkgmcs=w1920-h969-iv1" frameType="TwoByOne"
+					press="onPress">
+					<TileContent footer="May 20, 2021">
+						<NewsContent contentText="Kooperationsvereinbarung updated" subheader="Compass II, Contracts"/>
+					</TileContent>
+				</GenericTile>
+				<GenericTile backgroundImage="https://lh3.google.com/u/0/d/1iIi0QvAlLfkhCbfXuexHCHKbl6Emokcw=w1920-h598-iv1"
+					frameType="TwoByOne">
+					<TileContent footer="August 21, 2016">
+						<NewsContent contentText="SAP Unveils Powerful New Player Comparision Tool Exclusively on NFL.com" subheader="Today, SAP News"/>
+					</TileContent>
+				</GenericTile>
+				<GenericTile backgroundImage="https://lh3.google.com/u/0/d/1bmnGKTLFaE7_LZtbOfoRIvFx1k2UYsv2=w1920-h598-iv1" frameType="TwoByOne">
+					<TileContent footer="August 21, 2016">
+						<NewsContent contentText="SAP Unveils Powerful New Player Comparision Tool Exclusively on NFL.com" subheader="Today, SAP News"/>
+					</TileContent>
+				</GenericTile>
+			</SlideTile>
+			<!--<f:Card >-->
+			<!--	<f:layoutData>-->
+			<!--		<f:GridContainerItemLayoutData columns="6" rows="5" minRows="4"/>-->
+			<!--	</f:layoutData>-->
+			<!--	<f:header>-->
+			<!--		<card:NumericHeader title="Employees" subtitle="On leave" details="Bla bla bla" number="55" scale="EUR" statusText="Test" state="Critical"-->
+			<!--			unitOfMeasurement="EUR"/>-->
+			<!--	</f:header>-->
+			<!--	<f:content>-->
+			<!--		<lab:LineChartJS id="line_chart" datasets="{temp>/lineChart/datasets}" labels="{temp>/lineChart/labels}" titleDisplay="true"-->
+			<!--			titleText="Line Chart Example" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover" onClick="onClick"-->
+			<!--			onHover="onHover" tooltipEnabled="true" onAnimationProgress="onAnimationProgress" onAnimationComplete="onAnimationComplete" showLines="true"-->
+			<!--			spanGaps="true" class=""></lab:LineChartJS>-->
+			<!--	</f:content>-->
+			<!--</f:Card>-->
+			<!--<f:Card >-->
+			<!--	<f:layoutData>-->
+			<!--		<f:GridContainerItemLayoutData columns="6" rows="5" minRows="4"/>-->
+			<!--	</f:layoutData>-->
+			<!--	<f:header>-->
+			<!--		<card:NumericHeader title="Employees" subtitle="On leave" details="Bla bla bla" number="55" scale="EUR" statusText="Test" state="Critical"-->
+			<!--			unitOfMeasurement="EUR"/>-->
+			<!--	</f:header>-->
+			<!--	<f:content>-->
+			<!--		<lab:BarChartJS id="bar_chart" datasets="{temp>/barChart/datasets}" labels="{temp>/barChart/labels}" titleDisplay="true"-->
+			<!--			titleText="Bar Chart Example" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover" onClick="onClick"-->
+			<!--			onHover="onHover" tooltipEnabled="true" onAnimationProgress="onAnimationProgress" onAnimationComplete="onAnimationComplete"-->
+			<!--			isHorizontal="false"></lab:BarChartJS>-->
+			<!--	</f:content>-->
+			<!--</f:Card>-->
+			<!--<f:Card >-->
+			<!--	<f:layoutData>-->
+			<!--		<f:GridContainerItemLayoutData columns="6" rows="7" minRows="4"/>-->
+			<!--	</f:layoutData>-->
+			<!--	<f:header>-->
+			<!--		<card:NumericHeader title="Mandatory documents" subtitle="% Completeness"/>-->
+			<!--	</f:header>-->
+			<!--	<f:content>-->
+			<!--		<lab:RadarChartJS id="radar_chart" datasets="{temp>/radarChart/datasets}" labels="{temp>/radarChart/labels}" titleDisplay="true"-->
+			<!--			titleText="" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover" onClick="onClick" onHover="onHover"-->
+			<!--			tooltipEnabled="true" onAnimationProgress="onAnimationProgress" onAnimationComplete="onAnimationComplete"></lab:RadarChartJS>-->
+			<!--	</f:content>-->
+			<!--</f:Card>-->
+			<!--<f:Card >-->
+			<!--	<f:layoutData>-->
+			<!--		<f:GridContainerItemLayoutData columns="6" rows="8" minRows="7"/>-->
+			<!--	</f:layoutData>-->
+			<!--	<f:header>-->
+			<!--		<card:NumericHeader title="Employees" subtitle="On leave" details="Bla bla bla" number="55" scale="EUR" statusText="Test" state="Critical"-->
+			<!--			unitOfMeasurement="EUR"/>-->
+			<!--	</f:header>-->
+			<!--	<f:content>-->
+			<!--		<lab:PolarAreaChartJS id="polar_area_chart" datasets="{temp>/polarAreaChart/datasets}" labels="{temp>/polarAreaChart/labels}"-->
+			<!--			titleDisplay="true" titleText="Polar Area Chart Example" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover"-->
+			<!--			onClick="onClick" onHover="onHover" tooltipEnabled="true" onAnimationProgress="onAnimationProgress"-->
+			<!--			onAnimationComplete="onAnimationComplete"></lab:PolarAreaChartJS>-->
+			<!--	</f:content>-->
+			<!--</f:Card>-->
+			<!--<f:Card >-->
+			<!--	<f:layoutData>-->
+			<!--		<f:GridContainerItemLayoutData columns="6" rows="8" minRows="4"/>-->
+			<!--	</f:layoutData>-->
+			<!--	<f:header>-->
+			<!--		<card:NumericHeader title="Employees" subtitle="On leave" details="Bla bla bla" number="55" scale="EUR" statusText="Test" state="Critical"-->
+			<!--			unitOfMeasurement="EUR"/>-->
+			<!--	</f:header>-->
+			<!--	<f:content>-->
+			<!--		<lab:PieChartJS id="pie_chart" datasets="{temp>/pieChart/datasets}" labels="{temp>/pieChart/labels}" titleDisplay="true"-->
+			<!--			titleText="Pie Chart Example" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover" onClick="onClick"-->
+			<!--			onHover="onHover" tooltipEnabled="true" onAnimationProgress="onAnimationProgress" onAnimationComplete="onAnimationComplete"></lab:PieChartJS>-->
+			<!--	</f:content>-->
+			<!--</f:Card>-->
+			<!--<f:Card >-->
+			<!--	<f:layoutData>-->
+			<!--		<f:GridContainerItemLayoutData columns="6" rows="5" minRows="4"/>-->
+			<!--	</f:layoutData>-->
+			<!--	<f:header>-->
+			<!--		<card:NumericHeader title="Employees" subtitle="On leave" details="Bla bla bla" number="55" scale="EUR" statusText="Test" state="Critical"-->
+			<!--			unitOfMeasurement="EUR"/>-->
+			<!--	</f:header>-->
+			<!--	<f:content>-->
+			<!--		<lab:BubbleChartJS id="bubble_chart" datasets="{temp>/bubbleChart/datasets}" labels="{temp>/bubbleChart/labels}" titleDisplay="true"-->
+			<!--			titleText="Bubble Chart Example" onLegendItemClick="onLegendItemClick" onLegendItemHover="onLegendItemHover" onClick="onClick"-->
+			<!--			onHover="onHover" tooltipEnabled="true" onAnimationProgress="onAnimationProgress" onAnimationComplete="onAnimationComplete"></lab:BubbleChartJS>-->
+			<!--	</f:content>-->
+			<!--</f:Card>-->
+			<!-- <w:Card id="tableCard" action="onAction">
+				<w:layoutData>
+					<f:GridContainerItemLayoutData rows="4" columns="4"/>
+				</w:layoutData>
+			</w:Card>
+			<w:Card manifest="{contactManifests>/object}" action="onAction">
+				<w:layoutData>
+					<f:GridContainerItemLayoutData rows="4" columns="3"/>
+				</w:layoutData>
+			</w:Card> -->
+			<!--<w:Card id="analytical">-->
+			<!--	<w:layoutData>-->
+			<!--		<f:GridContainerItemLayoutData columns="6"/>-->
+			<!--	</w:layoutData>-->
+			<!--</w:Card>-->
+			<!-- Form -->
+			<!--<f:Card >-->
+			<!--	<f:layoutData>-->
+			<!--		<f:GridContainerItemLayoutData minRows="4" columns="4"/>-->
+			<!--	</f:layoutData>-->
+			<!--	<f:header>-->
+			<!--		<card:Header title="Form" iconSrc="sap-icon://form"/>-->
+			<!--	</f:header>-->
+			<!--	<f:content>-->
+			<!--		<VBox width="100%" class="sapUiSmallMargin" justifyContent="SpaceBetween">-->
+			<!--			<Label text="Your Name" labelFor="inpName"/>-->
+			<!--			<Input id="inpName" required="true"/>-->
+			<!--			<Label text="Email" labelFor="InpEmail"/>-->
+			<!--			<Input id="InpEmail" required="true"/>-->
+			<!--			<Label text="Date Expiration" labelFor="DP1"/>-->
+			<!--			<DatePicker id="DP1" placeholder="Enter Date" change="handleChange" class="sapUiSmallMarginBottom"/>-->
+			<!--class="sapUiTinyMarginBottom"-->
+			<!--			<Button width="100%" type="Emphasized" text="Submit" press="onPress"/>-->
+			<!--		</VBox>-->
+			<!--	</f:content>-->
+			<!--</f:Card>-->
+			<!-- Reports -->
+			<!--<f:Card>-->
+			<!--	<f:layoutData>-->
+			<!--		<f:GridContainerItemLayoutData minRows="4" columns="4"/>-->
+			<!--	</f:layoutData>-->
+			<!--	<f:header>-->
+			<!--		<card:Header title="Reports" iconSrc="sap-icon://vertical-bar-chart"/>-->
+			<!--	</f:header>-->
+			<!--	<f:content>-->
+			<!--		<VBox height="100%" width="100%">-->
+			<!--			<SearchField liveChange=".onSearch" width="100%"/>-->
+			<!--			<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">-->
+			<!--				<SelectList width="100%">-->
+			<!--					<core:Item key="036465154" text="Missing Documents"/>-->
+			<!--					<core:Item key="5345645684" text="Outdated Documents"/>-->
+			<!--				</SelectList>-->
+			<!--			</ScrollContainer>-->
+			<!--		</VBox>-->
+			<!--	</f:content>-->
+			<!--</f:Card>-->
+			<!-- My Teams's To-Dos -->
+			<!--<f:Card>-->
+			<!--	<f:layoutData>-->
+			<!--		<f:GridContainerItemLayoutData minRows="4" columns="4"/>-->
+			<!--	</f:layoutData>-->
+			<!--	<f:header>-->
+			<!--		<card:Header title="My Teams's To-Dos" iconSrc="sap-icon://activity-individual"/>-->
+			<!--	</f:header>-->
+			<!--	<f:content>-->
+			<!--		<VBox height="100%" width="100%">-->
+			<!--			<SearchField liveChange=".onSearch" width="100%"/>-->
+			<!--			<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">-->
+			<!--				<SelectList width="100%">-->
+			<!--					<core:Item key="056465154" text="Ben Shervin"/>-->
+			<!--					<core:Item key="5645645684" text="Emma Dorn"/>-->
+			<!--					<core:Item key="45345345" text="Emma Ward"/>-->
+			<!--					<core:Item key="534654623" text="Geoff Hill"/>-->
+			<!--					<core:Item key="76987876" text="Martin Schulz"/>-->
+			<!--				</SelectList>-->
+			<!--			</ScrollContainer>-->
+			<!--		</VBox>-->
+			<!--	</f:content>-->
+			<!--</f:Card>-->
+			<!-- Document Tasks -->
+			<!--<f:Card>-->
+			<!--	<f:layoutData>-->
+			<!--		<f:GridContainerItemLayoutData minRows="4" columns="4"/>-->
+			<!--	</f:layoutData>-->
+			<!--	<f:header>-->
+			<!--		<card:Header title="Document Tasks" iconSrc="sap-icon://vds-file"/>-->
+			<!--	</f:header>-->
+			<!--	<f:content>-->
+			<!--		<VBox height="100%" width="100%">-->
+			<!--			<SearchField liveChange=".onSearch" width="100%"/>-->
+			<!--			<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">-->
+			<!--				<List width="100%" includeItemInSelection="true">-->
+			<!--					<items>-->
+			<!--						<StandardListItem type="Active" title="Transfer Pay Change - Emma Ward" description="Effective Date 04/14/2020"-->
+			<!--							tooltip="Transfer Pay Change - Emma Ward" icon="sap-icon://clinical-tast-tracker" iconDensityAware="false" iconInset="false"-->
+			<!--							class="TaskStandardListItem"/>-->
+			<!--						<StandardListItem type="Active" title="Transfer Pay Change - Emma Dorn" description="Effective Date 04/24/2020"-->
+			<!--							tooltip="Transfer Pay Change - Emma Ward" icon="sap-icon://clinical-tast-tracker" iconDensityAware="false" iconInset="false"-->
+			<!--							class="TaskStandardListItem"/>-->
+			<!--						<StandardListItem type="Active" title="Promotion Pay Change > 5% - Emma Dorn" description="Effective Date 05/18/2020"-->
+			<!--							tooltip="Transfer Pay Change - Emma Ward" icon="sap-icon://clinical-tast-tracker" iconDensityAware="false" iconInset="false"-->
+			<!--							class="TaskStandardListItem"/>-->
+			<!--						<StandardListItem type="Active" title="Promotion Pay Change > 5% - Emma Ward" description="Effective Date 05/25/2020"-->
+			<!--							tooltip="Transfer Pay Change - Emma Ward" icon="sap-icon://clinical-tast-tracker" iconDensityAware="false" iconInset="false"-->
+			<!--							class="TaskStandardListItem"/>-->
+			<!--					</items>-->
+			<!--				</List>-->
+			<!--			</ScrollContainer>-->
+			<!--		</VBox>-->
+			<!--	</f:content>-->
+			<!--</f:Card>-->
+			<!-- Recently Accessed -->
+			<!--<f:Card height="400px">-->
+			<!--	<f:layoutData>-->
+			<!--		<f:GridContainerItemLayoutData minRows="4" columns="4"/>-->
+			<!--	</f:layoutData>-->
+			<!--	<f:header>-->
+			<!--		<card:Header title="Recently Accessed" iconSrc="sap-icon://timesheet"/>-->
+			<!--	</f:header>-->
+			<!--	<f:content>-->
+			<!--		<VBox height="100%" width="100%">-->
+			<!--			<ScrollContainer height="100%" width="100%" vertical="true" focusable="true">-->
+			<!--				<List width="100%" includeItemInSelection="true">-->
+			<!--					<items>-->
+			<!--						<StandardListItem type="Active" title="Custom View Searches" description="04/14/2020" icon="sap-icon://folder-blank"-->
+			<!--							iconDensityAware="false" iconInset="false"/>-->
+			<!--						<StandardListItem type="Active" title="Project Charters" description="04/14/2020" icon="sap-icon://folder-blank" iconDensityAware="false"-->
+			<!--							iconInset="false"/>-->
+			<!--						<StandardListItem type="Active" title="Capture.png" description="04/14/2020" icon="sap-icon://background" iconDensityAware="false"-->
+			<!--							iconInset="false"/>-->
+			<!--						<StandardListItem type="Active" title="Pump repair Manual" description="04/24/2020" icon="sap-icon://pdf-attachment"-->
+			<!--							iconDensityAware="false" iconInset="false"/>-->
+			<!--						<StandardListItem type="Active" title="Word document" description="05/18/2020" icon="sap-icon://doc-attachment" iconDensityAware="false"-->
+			<!--							iconInset="false"/>-->
+			<!--						<StandardListItem type="Active" title="Excel document" description="05/25/2020" icon="sap-icon://excel-attachment" iconDensityAware="false"-->
+			<!--							iconInset="false"/>-->
+			<!--					</items>-->
+			<!--				</List>-->
+			<!--			</ScrollContainer>-->
+			<!--		</VBox>-->
+			<!--	</f:content>-->
+			<!--</f:Card>-->
+		</f:GridContainer>
+	<!--</ScrollContainer>-->
+</core:FragmentDefinition>

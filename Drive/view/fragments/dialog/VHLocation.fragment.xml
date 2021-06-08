@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Locations"
+		class="sapUiPopupWithPadding"
+		items="{path: '/VHLocations'}"
+		search="_handleValueHelpSearch"
+		confirm="VHLocationsDialogClose"
+		cancel="VHLocationsDialogClose"
+		growing="false"
+		multiSelect="true">
+		<StandardListItem
+			title="{Name}"
+			description="{Id}" />
+	</SelectDialog>
+</core:FragmentDefinition>

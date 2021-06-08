@@ -1,0 +1,21 @@
+<mvc:View controllerName="com.nubexx.ndoxx.Home.controller.Launchpad" xmlns:m="sap.m" xmlns="sap.uxap" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f" xmlns:w="sap.ui.integration.widgets" xmlns:cssgrid="sap.ui.layout.cssgrid">
+	<m:ScrollContainer vertical="true" focusable="true" height="100%">
+	<m:IconTabBar id="idIconTabBar" select="handleIconTabBarSelect" headerBackgroundDesign="Transparent"
+		class="sapUiResponsiveContentPadding sapUiSmallMarginBegin">
+		<m:items>
+			<m:IconTabFilter text="Admin">
+				<m:ScrollContainer vertical="true" focusable="true" height="80rem">
+					<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.nubexx.ndoxx.Home.view.fragments.tabs.Admin" type="XML"/>
+				</m:ScrollContainer>
+			</m:IconTabFilter>
+			<m:IconTabFilter id="reports" text="Reports">
+				<!--<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.nubexx.ndoxx.Home.view.fragments.tabs.Kpi" type="XML"/>-->
+			</m:IconTabFilter>
+			<m:IconTabFilter text="Me">
+				<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.nubexx.ndoxx.Home.view.fragments.tabs.Me" type="XML"/>
+			</m:IconTabFilter>
+		</m:items>
+	</m:IconTabBar>
+	</m:ScrollContainer>
+</mvc:View>

@@ -1,0 +1,4 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:card="sap.f.cards" xmlns:f="sap.f"
+	xmlns:w="sap.ui.integration.widgets">
+	<Text text="dummy"></Text>
+</core:FragmentDefinition>

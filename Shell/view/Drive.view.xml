@@ -1,0 +1,7 @@
+<mvc:View busyIndicatorDelay="0"
+	 xmlns:mvc="sap.ui.core.mvc"
+	 xmlns:core="sap.ui.core"
+	 xmlns="sap.m"
+	 controllerName="com.nubexx.ndoxx.Shell.controller.Drive">
+		<core:ComponentContainer id="idDrive" height="100%" />
+</mvc:View>

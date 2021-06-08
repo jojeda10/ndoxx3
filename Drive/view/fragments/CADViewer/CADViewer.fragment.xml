@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:nubexx="com.nubexx.ndoxx.Drive.controls"
+		xmlns:core="sap.ui.core">
+	    <nubexx:WebViewer id="webViewer"
+		webViewerServer = "https://webviewer.staging.nubexx.com"
+		libJsPath = "/Demo/resources/webviewer-lib/"
+		documentUrl = "http://nubexx.com/fileadmin/Demo/three-storey-building.dwg"
+		viewerConfig = "{
+			events: {
+				documentLoaded: '.editorReady'
+			}
+		 }"
+	/> 
+</core:FragmentDefinition>
