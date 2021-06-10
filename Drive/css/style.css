@@ -1,3 +1,66 @@
+.activityItemBorder  {
+    border-bottom: 1px solid #e5e5e5 !important
+}
+
+
+.sapMNCAnimation {
+    animation-name: sapMCOpacityAnimation;
+    animation-duration: 1s;
+    height: 2.25rem;
+}
+
+.sapUxAPObjectPageHeaderIdentifier.sapUxAPObjectPageHeaderIdentifierForce, .sapUxAPObjectPageHeaderStickied .sapUxAPObjectPageHeaderIdentifier {
+    display: block;
+    padding-left: 3rem !important;
+}
+
+.sapUiSizeCompact .sapUxAPObjectPageHeaderIdentifier .sapUxAPObjectPageHeaderIdentifierActions {
+    padding-top: 0.75rem;
+    padding-right: 1rem;
+}
+
+.headerInfo {
+    padding: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+.projectDrive {
+    padding-left: 2rem !important;
+    padding-right: 2.5rem !important;
+}
+
+
+.headerInfoBottom {
+    border-bottom: 1px solid #e5e5e5 !important;
+}
+
+.sapUxAPObjectPageHeaderIdentifier.sapUxAPObjectPageHeaderIdentifierForce, .sapUxAPObjectPageHeaderStickied .sapUxAPObjectPageHeaderIdentifier {
+    display: block;
+    border-bottom-color: #0854a0;
+    line-height: 55px;
+}
+.sapUxAPObjectPageHeaderIdentifier {
+    padding-left: 1rem !important;
+}
+
+.sapFDynamicPageToggleHeaderIndicator:before, .sapFDynamicPageHeaderPinButton:before {
+    background-image: linear-gradient(to left, #0854a0, rgba(8,84,160,0));
+    right: 100%;
+}
+
+.sapFDynamicPageToggleHeaderIndicator:after, .sapFDynamicPageHeaderPinButton:after {
+    background-image: linear-gradient(to right, #0854a0, rgba(8,84,160,0));
+    left: 100%;
+}
+
+.sapFDynamicPageToggleHeaderIndicator:before, .sapFDynamicPageHeaderPinButton:before, .sapFDynamicPageToggleHeaderIndicator:after, .sapFDynamicPageHeaderPinButton:after {
+    content: "";
+    position: absolute;
+    width: 4rem;
+    top: 50%;
+    height: 0.0625rem;
+}
+
 .gridInvisible {
    visibility: hidden;
 }

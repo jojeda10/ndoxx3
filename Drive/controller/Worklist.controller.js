@@ -84,12 +84,23 @@ sap.ui.define([
             this._setProgressInterval();
             var oDynamicSideView = this.oView.byId("DynamicSideContent");
             oDynamicSideView.setShowSideContent(false);
-          //  this._subscribeToNavigation();
+            //  this._subscribeToNavigation();
+
+
+        
         },
 
         onRefreshAll: function () {
             var oGridUpload = this.getView().byId("gridUpload");
             oGridUpload.setBusy(true);
+
+             for (var i = 0; oGridUpload.getItems().length > i; i++) {
+               //  oGridUpload.getItems()[i].getBindingContext().setProperty("ThumbnailUrl",  oGridUpload.getItems()[i].getBindingContext().getProperty("ThumbnailUrl")+ "?" + new Date().getTime() );
+
+                //oGridUpload.getItems()[i].destroy();
+             }
+
+
             oGridUpload.getBinding("items").refresh();
             var oGridFolder = this.getView().byId("gridFolder");
             oGridFolder.getBinding("items").refresh();
@@ -98,12 +109,12 @@ sap.ui.define([
         },
 
         _subscribeToNavigation: function () {
-        //sap.ui.getCore().getEventBus().subscribe("Drive", "itemSelect", this.onNavigationSelect, this);
-        },  
+            //sap.ui.getCore().getEventBus().subscribe("Drive", "itemSelect", this.onNavigationSelect, this);
+        },
 
         onNavigationSelect: function (oEvent) {
-        debugger;
-         },
+            debugger;
+        },
 
         _platformIsSuccessFactor: function () {
             var sUrl = window.location.origin;
@@ -349,7 +360,7 @@ sap.ui.define([
                 this.handleClose();
             } else {
                 this._setObjectDetails(this.getView().getModel("app").getProperty("/repositoryId"), this.getView()
-                    .getModel("app").getProperty("/rootFolderId"), sKey);
+                    .getModel("app").getProperty("/rootFolderId"), sKey, "Folder");
             }
         },
 
@@ -485,9 +496,14 @@ sap.ui.define([
                 success: function (oResult) {
                     var aHistory = JSON.parse(oResult.Menu);
                     oModel = new JSONModel(aHistory);
-                    var oSideNavigation = sap.ui.getCore().byId("navigation");
-                    oSideNavigation.setModel(oModel);
-                    oSideNavigation.setBusy(false);
+
+                        var oSideNavigation = sap.ui.getCore().byId("navigation");
+                        if (oSideNavigation) {
+                        oSideNavigation.setModel(oModel);
+                        oSideNavigation.setBusy(false);
+                        }
+
+ 
 
                 }.bind(this),
                 error: function (oError) { /* do something */
@@ -541,8 +557,10 @@ sap.ui.define([
         },
 
         _onLoadMenu: function (sSelectedKey) {
-            var oSideNavigation = sap.ui.getCore().byId("navigation");
-            oSideNavigation.setBusy(true);
+            if (!window.bIsProject) {
+            //var oSideNavigation = sap.ui.getCore().byId("navigation");
+            //oSideNavigation.setBusy(true);
+            }
             this._onLoadRepositories(function (oResult) {
                 var sRepositoryId = oResult.RepositoryId,
                     sRootFolderId = oResult.RootFolderId,
@@ -743,7 +761,7 @@ sap.ui.define([
                     dataReceived: function () {
                         this._setCount();
                         oGridFolder.setBusy(false);
-                       this._activeDragFolders(oGridFolder);
+                        this._activeDragFolders(oGridFolder);
                     }.bind(this)
                 }
             });
@@ -1235,6 +1253,20 @@ sap.ui.define([
 
         },
 
+        onHeaderToggle: function (oEvent) {
+            if (this.getView().getModel("app").getProperty("/isToggled")) {
+                oEvent.getSource().setIcon("sap-icon://navigation-down-arrow");
+                this.getView().getModel("app").setProperty("/isToggled", false)
+            } else {
+                
+                oEvent.getSource().setIcon("sap-icon://navigation-up-arrow");
+                this.getView().getModel("app").setProperty("/isToggled", true)
+            }
+            var $a = $(this.getView().byId("block").getDomRef());
+            $a.toggleClass("active"); 
+
+        },
+
         onTakeAction: function (oEvent) {
             var oContext = oEvent.getSource().getBindingContext();
             this.getView().getModel("app").setProperty("/isTakeAction", true);
@@ -1290,34 +1322,60 @@ sap.ui.define([
         },
 
         onViewDetailsPress: function (oEvent) {
-            // var oContext = this.oUploadCollection.getSelectedItem().getBindingContext();
-            // this._setObjectDetails(oContext.getProperty("RepositoryId"), oContext.getProperty("ParentIds"), oContext.getProperty("ObjectId"));
+			var oContext = oEvent.getSource().getBindingContext();
+			this._setObjectDetails(oContext.getProperty("RepositoryId"), oContext.getProperty("ParentIds"), oContext.getProperty("ObjectId"), oContext.getProperty("DocumentType"));
+       },
 
-            // this.getView().byId("panelContainer").insertPane(this.oObjectDetails, 1);
-            // this.getView().getModel("app").setProperty("/detailsOpen", true);
-        },
+       _setObjectDetails: function (sRepositoryId,sParentId,sObjectId,sDocumentType) {
 
-        _setObjectDetails: function (sRepositoryId, sParentId, sObjectId) {
+           this.getView().byId("idObjectIcon").removeStyleClass("ndoxxTileExcelIcon");
+           this.getView().byId("idObjectIcon").removeStyleClass("ndoxxTileWordIcon");
+           this.getView().byId("idObjectIcon").removeStyleClass("ndoxxTilePdfIcon");
+           this.getView().byId("idObjectIcon").removeStyleClass("ndoxxTilePowerPointIcon");
+           this.getView().byId("idObjectIcon").removeStyleClass("ndoxxTileFileIcon");
+           this.getView().byId("idObjectIcon").removeStyleClass("ndoxxTileFolderIcon");
+           this.getView().byId("idObjectIcon").removeStyleClass("ndoxxTileFolderIcon");
+           switch (sDocumentType) {
+               case 'Excel':
+                   this.getView().byId("idObjectIcon").addStyleClass("ndoxxTileExcelIcon");
+                   break;
+               case 'Word':
+                   this.getView().byId("idObjectIcon").addStyleClass("ndoxxTileWordIcon");
+                   break;
+               case 'Pdf':
+                   this.getView().byId("idObjectIcon").addStyleClass("ndoxxTilePdfIcon");
+                   break;
+               case 'File':
+                   this.getView().byId("idObjectIcon").addStyleClass("ndoxxTileFileIcon");
+                   break;
+               case 'PowerPoint':
+                   this.getView().byId("idObjectIcon").addStyleClass("ndoxxTilePowerPointIcon");
+                   break;
+               case 'Folder': 
+               this.getView().byId("idObjectIcon").addStyleClass("ndoxxTileFolderIcon");
+                   break;
+               default:
+                   this.getView().byId("idObjectIcon").addStyleClass("ndoxxTileFileIcon");
+                   break;
+           };
 
-            if (!this.oObjectDetails) {
-                this.oObjectDetails = sap.ui.xmlfragment("com.nubexx.ndoxx.Drive.view.fragments.form.ObjectDetails", this);
-            }
+            var oObjectDetails = this.getView().byId("idObjectDetails");
 
             var sPath = "/Folders(RepositoryId='" + sRepositoryId + "',ObjectId='" + sParentId +
                 "')/toCmisObjects(RepositoryId='" +
                 sRepositoryId + "',ObjectId='" + sObjectId + "')";
             var oObjectPage = sap.ui.getCore().byId("ObjectPageLayout");
-            this.oObjectDetails.bindElement({
+            oObjectDetails.bindElement({
                 path: sPath,
                 parameters: {
-                    $select: 'ContentUrl,ThumbnailUrl,IsDocument,IsFolder,IsTrashed'
+                    $select: 'ObjectId,Name,Description,Tags,CreationDate,CreatedBy,DocumentType,Owener,IsImmutable,ParentName,IsTrashed,IsStarred,IsDocument,IsFolder,NumberOfChildren'
                 },
                 events: {
-                    dataRequested: function () {
-                        oObjectPage.setVisible(false);
+                    dataRequested: function (oData) {
+                        
                     }.bind(this),
                     dataReceived: function () {
-                        oObjectPage.setVisible(true);
+                        
                     }.bind(this)
                 }
             });
@@ -1352,7 +1410,7 @@ sap.ui.define([
             sPath = "/" + "Folders(RepositoryId='" + sRepositoryId + "',ObjectId='" + sObjectId + "')";
             this.getModel("history").setProperty("/targetPath", sPath);
 
-            this._setObjectDetails(oContext.getProperty("RepositoryId"), oContext.getProperty("ParentIds"), oContext.getProperty("ObjectId"));
+            this._setObjectDetails(oContext.getProperty("RepositoryId"), oContext.getProperty("ParentIds"), oContext.getProperty("ObjectId"), "Folder");
         },
 
         onFolderDeletePress: function (oEvent) {
@@ -1648,6 +1706,7 @@ sap.ui.define([
                 this._getHistory(sRepositoryId, sRootFolderId);
                 this._onLoadMenu(sRootFolderId);
                 this._activeDrag(this.getView().byId("gridUpload"));
+                this._setObjectDetails(sRepositoryId, sRootFolderId, sRootFolderId, "Folder");
             }.bind(this), function (oError) { /* do something */ });
         },
 
@@ -1676,6 +1735,14 @@ sap.ui.define([
             this._bindQuery(sRepositoryId, sfolderId, "trashed");
         },
         _onFolderMatched: function (oEvent) {
+
+            if (window.bIsProject) {
+                this.getView().getModel("app").setProperty("/isProject", true);
+                this.getView().byId("idDrive").addStyleClass("projectDrive");
+            } else {
+                this.getView().getModel("app").setProperty("/isProject", false);   
+                this.getView().byId("idDrive").removeStyleClass("projectDrive");           
+            }
             this.getView().unbindElement();
             var sRepositoryId = oEvent.getParameter("arguments").sRepositoryId;
             var sfolderId = oEvent.getParameter("arguments").sfolderId;

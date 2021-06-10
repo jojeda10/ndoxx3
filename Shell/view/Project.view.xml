@@ -1,0 +1,9 @@
+<mvc:View busyIndicatorDelay="0"
+	 xmlns:mvc="sap.ui.core.mvc"
+	 xmlns:core="sap.ui.core"
+	 xmlns="sap.m"
+	 controllerName="com.nubexx.ndoxx.Shell.controller.Project">
+	 <VBox class="viewMargin">
+		<core:ComponentContainer id="idProject" height="100%" />
+	</VBox>	
+</mvc:View>

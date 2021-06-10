@@ -83,7 +83,13 @@
 				"pattern": "drive/:viewPattern:",
 				"name": "drive",
 				"target": ["drive"]
-			}],
+			}
+			, {
+				"pattern": "project/:viewPattern:",
+				"name": "project",
+				"target": ["project"]
+			}
+		],
 			"targets": {
 				"default": {
 					"viewName": "Home",
@@ -98,6 +104,11 @@
 				"drive": {
 					"viewName": "Drive",
 					"viewId": "drive",
+					"viewLevel": 2
+				},
+				"project": {
+					"viewName": "Project",
+					"viewId": "project",
 					"viewLevel": 2
 				}
 			}

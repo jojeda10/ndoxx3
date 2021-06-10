@@ -28,7 +28,9 @@ sap.ui.define([
 				"isFolder": false,
 				"isDocument": true,
 				"isTakeAction": false,
+				"isToggled": false,
 				"uploadUrl": "",
+				"isProject": false,
 				"thumbnail": "https://onlyoffice.nubexx.com/cache/files/conv_Khirz6zTPsasd_jpeg/output.jpg/Example%20Document%20Title.jpg?md5=FOAKwd-F_iP_Hi2J0ahF9A&expires=1589033311"
 			}
 			);

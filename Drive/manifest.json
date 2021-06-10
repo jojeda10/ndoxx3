@@ -112,7 +112,8 @@
 				"pattern": "drive/worklist",
 				"name": "worklist",
 				"target": "worklist"
-			}, {
+			},
+			{
 				"pattern": "drive/trashed",
 				"name": "trashed",
 				"target": "trashed"

@@ -35,6 +35,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 		},
 
+		onProjectSelect: function () {
+			window.oRouter.navTo("drive", {
+				viewPattern: "worklist"
+			});
+			window.bIsProject = true;
+		},	
 
 		_onLaunchpadMatched: function (oEvent) {
 			this.getView().byId("reports").destroyContent();
