@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Nubexx.Ndoxx">
+            <EntityType Name="CmisObject">
+                <Key>
+                    <PropertyRef Name="RepositoryId"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Description" Type="Edm.String">
+                </Property>
+                <Property Name="RepositoryId" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectTypeId" Type="Edm.String">
+                </Property>
+                <Property Name="ParentIds" Type="Edm.String">
+                </Property>
+                <Property Name="Path" Type="Edm.String">
+                </Property>
+                <Property Name="AllowedChildObjectTypeIds" Type="Edm.String">
+                </Property>
+                <Property Name="Tags" Type="Edm.String">
+                </Property>
+                <Property Name="CreationDate" Type="Edm.DateTimeOffset">
+                </Property>
+                <Property Name="SecondaryObjectTypeIds" Type="Edm.String">
+                </Property>
+                <Property Name="ChangeToken" Type="Edm.String">
+                </Property>
+                <Property Name="LastModifiedBy" Type="Edm.String">
+                </Property>
+                <Property Name="CreatedBy" Type="Edm.String">
+                </Property>
+                <Property Name="DocumentType" Type="Edm.String">
+                </Property>
+                <Property Name="Ident" Type="Edm.Int64">
+                </Property>
+                <Property Name="Owener" Type="Edm.String">
+                </Property>
+                <Property Name="IsImmutable" Type="Edm.Boolean">
+                </Property>
+                <Property Name="BaseTypeId" Type="Edm.String">
+                </Property>
+                <Property Name="LastModificationDate" Type="Edm.DateTimeOffset">
+                </Property>
+                <Property Name="ParentId" Type="Edm.String">
+                </Property>
+                <Property Name="ParentName" Type="Edm.String">
+                </Property>
+                <Property Name="Blockdate" Type="Edm.DateTimeOffset">
+                </Property>
+                <Property Name="ContentUrl" Type="Edm.String">
+                </Property>
+                <Property Name="OnlyOfficeUrl" Type="Edm.String">
+                </Property>
+                <Property Name="ThumbnailUrl" Type="Edm.String">
+                </Property>
+                <Property Name="UserId" Type="Edm.String">
+                </Property>
+                <Property Name="ContentStreamMimeType" Type="Edm.String">
+                </Property>
+                <Property Name="IsTrashed" Type="Edm.Boolean">
+                </Property>
+                <Property Name="IsStarred" Type="Edm.Boolean">
+                </Property>
+                <Property Name="IsDocument" Type="Edm.Boolean">
+                </Property>
+                <Property Name="IsFolder" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclCompany" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclBusinessUnit" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclDivision" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclDepartment" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclLocation" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclPosition" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclJobClassification" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclRole" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclPermission" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclUser" Type="Edm.Boolean">
+                </Property>
+                <Property Name="IsImage" Type="Edm.Boolean">
+                </Property>
+                <Property Name="TransientState" Type="Edm.String">
+                </Property>
+                <Property Name="QueryType" Type="Edm.String">
+                </Property>
+                <Property Name="NumberOfChildren" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="Folder" HasStream="true">
+                <Key>
+                    <PropertyRef Name="RepositoryId"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="RepositoryId" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Description" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectTypeId" Type="Edm.String">
+                </Property>
+                <Property Name="ParentIds" Type="Edm.String">
+                </Property>
+                <Property Name="ParentName" Type="Edm.String">
+                </Property>
+                <Property Name="Path" Type="Edm.String">
+                </Property>
+                <Property Name="AllowedChildObjectTypeIds" Type="Edm.String">
+                </Property>
+                <Property Name="Tags" Type="Edm.String">
+                </Property>
+                <Property Name="CreationDate" Type="Edm.DateTimeOffset">
+                </Property>
+                <Property Name="SecondaryObjectTypeIds" Type="Edm.String">
+                </Property>
+                <Property Name="ChangeToken" Type="Edm.String">
+                </Property>
+                <Property Name="LastModifiedBy" Type="Edm.String">
+                </Property>
+                <Property Name="CreatedBy" Type="Edm.String">
+                </Property>
+                <Property Name="Ident" Type="Edm.Int64">
+                </Property>
+                <Property Name="Owner" Type="Edm.String">
+                </Property>
+                <Property Name="IsImmutable" Type="Edm.Boolean">
+                </Property>
+                <Property Name="IsDocument" Type="Edm.Boolean">
+                </Property>
+                <Property Name="IsFolder" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclCompany" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclBusinessUnit" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclDivision" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclDepartment" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclLocation" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclPosition" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclJobClassification" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclRole" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclPermission" Type="Edm.Boolean">
+                </Property>
+                <Property Name="AclUser" Type="Edm.Boolean">
+                </Property>
+                <Property Name="BaseTypeId" Type="Edm.String">
+                </Property>
+                <Property Name="LastModificationDate" Type="Edm.DateTimeOffset">
+                </Property>
+                <Property Name="ParentId" Type="Edm.String">
+                </Property>
+                <Property Name="Blockdate" Type="Edm.DateTimeOffset">
+                </Property>
+                <Property Name="HasChildrenFolders" Type="Edm.Boolean">
+                </Property>
+                <Property Name="HasChildrenDocuments" Type="Edm.Boolean">
+                </Property>
+                <Property Name="NumberOfChildren" Type="Edm.String">
+                </Property>
+                <NavigationProperty Name="toCmisObjects" Type="Collection(Nubexx.Ndoxx.CmisObject)">
+                </NavigationProperty>
+                <NavigationProperty Name="toPermissions" Type="Collection(Nubexx.Ndoxx.Permission)">
+                </NavigationProperty>
+                <NavigationProperty Name="toPermissionMap" Type="Collection(Nubexx.Ndoxx.PermissionMap)">
+                </NavigationProperty>
+                <NavigationProperty Name="toCompanies" Type="Collection(Nubexx.Ndoxx.Company)">
+                </NavigationProperty>
+                <NavigationProperty Name="toBusinessUnits" Type="Collection(Nubexx.Ndoxx.BusinessUnit)">
+                </NavigationProperty>
+                <NavigationProperty Name="toDivisions" Type="Collection(Nubexx.Ndoxx.Division)">
+                </NavigationProperty>
+                <NavigationProperty Name="toDepartments" Type="Collection(Nubexx.Ndoxx.Department)">
+                </NavigationProperty>
+                <NavigationProperty Name="toLocations" Type="Collection(Nubexx.Ndoxx.Location)">
+                </NavigationProperty>
+                <NavigationProperty Name="toPositions" Type="Collection(Nubexx.Ndoxx.Position)">
+                </NavigationProperty>
+                <NavigationProperty Name="toJobClassifications" Type="Collection(Nubexx.Ndoxx.JobClassification)">
+                </NavigationProperty>
+                <NavigationProperty Name="toRoles" Type="Collection(Nubexx.Ndoxx.Role)">
+                </NavigationProperty>
+                <NavigationProperty Name="toSFPermissions" Type="Collection(Nubexx.Ndoxx.SFPermission)">
+                </NavigationProperty>
+                <NavigationProperty Name="toUsers" Type="Collection(Nubexx.Ndoxx.User)">
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Thumbnail" HasStream="true">
+                <Key>
+                    <PropertyRef Name="RepositoryId"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="RepositoryId" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="Company">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Permission" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="VHCompany">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="BusinessUnit">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Permission" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="VHBusinessUnit">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="Division">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Permission" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="VHDivision">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="Department">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Permission" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="VHDepartment">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="Location">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="RepositoryId" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+                <Property Name="Permission" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="VHLocation">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="Position">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="RepositoryId" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+                <Property Name="Permission" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="VHPosition">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="JobClassification">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="DefaultFullName" Type="Edm.String">
+                </Property>
+                <Property Name="RepositoryId" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+                <Property Name="Permission" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="VHJobClassification">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="DefaultFullName" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="SFPermission">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="RepositoryId" Type="Edm.String">
+                </Property>
+                <Property Name="Permission" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="VHSFPermission">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="User">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="DefaultFullName" Type="Edm.String">
+                </Property>
+                <Property Name="RepositoryId" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+                <Property Name="Permission" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="VHUser">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="DefaultFullName" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="Role">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="RepositoryId" Type="Edm.String">
+                </Property>
+                <Property Name="Permission" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="VHRole">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Language" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="History">
+                <Key>
+                    <PropertyRef Name="History"/>
+                </Key>
+                <Property Name="History" Type="Edm.String">
+                </Property>
+                <Property Name="CurrentFolderName" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="Menu">
+                <Key>
+                    <PropertyRef Name="Menu"/>
+                </Key>
+                <Property Name="Menu" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="Capability">
+                <Key>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="ObjectId" Type="Edm.String">
+                </Property>
+                <Property Name="CanAddChildren" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanApplyACL" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanCancelCheckout" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanCheckin" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanCheckout" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanCopy" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanCreateDocument" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanCreateFolder" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanDelete" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanDownload" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanEdit" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanDeleteContent" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanDeleteTree" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanGetACL" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanGetAllVersions" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanGetChildren" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanGetDescendents" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanGetFolderParent" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanGetParents" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanGetProperties" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanSetContent" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanRead" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanMove" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanRename" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanShare" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanTrash" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanUntrash" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanStar" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanUnstar" Type="Edm.Boolean">
+                </Property>
+                <Property Name="CanUpdateProperties" Type="Edm.Boolean">
+                </Property>
+            </EntityType>
+            <EntityType Name="Document">
+                <Key>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="DocumentId" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="Description" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="NewDocument">
+                <Key>
+                    <PropertyRef Name="ObjectId"/>
+                </Key>
+                <Property Name="DocumentId" Type="Edm.String">
+                </Property>
+                <Property Name="Name" Type="Edm.String">
+                </Property>
+                <Property Name="ContentStreamMimeType" Type="Edm.String">
+                </Property>
+                <Property Name="ThumbnailUrl" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="Repository">
+                <Key>
+                    <PropertyRef Name="RepositoryId"/>
+                </Key>
+                <Property Name="RepositoryId" Type="Edm.String">
+                </Property>
+                <Property Name="RootFolderId" Type="Edm.String">
+                </Property>
+                <Property Name="Description" Type="Edm.String">
+                </Property>
+                <Property Name="Product" Type="Edm.String">
+                </Property>
+                <Property Name="Vendor" Type="Edm.String">
+                </Property>
+                <Property Name="CmisVersion" Type="Edm.String">
+                </Property>
+                <Property Name="TargetSystem" Type="Edm.String">
+                </Property>
+                <Property Name="IsGetDescendantsSupported" Type="Edm.Boolean">
+                </Property>
+                <Property Name="IsGetFolderTreeSupported" Type="Edm.Boolean">
+                </Property>
+                <Property Name="IsUnfilingSupported" Type="Edm.Boolean">
+                </Property>
+                <Property Name="IsMultifilingSupported" Type="Edm.Boolean">
+                </Property>
+                <Property Name="IsVersionSpecificFilingSupported" Type="Edm.Boolean">
+                </Property>
+                <Property Name="OrderByCapability" Type="Edm.String">
+                </Property>
+                <Property Name="QueryCapability" Type="Edm.String">
+                </Property>
+                <Property Name="JoinCapability" Type="Edm.String">
+                </Property>
+                <Property Name="IsAllVersionsSearchableSupported" Type="Edm.Boolean">
+                </Property>
+                <Property Name="IsPwcSearchableSupported" Type="Edm.Boolean">
+                </Property>
+                <Property Name="IsPwcUpdatableSupported" Type="Edm.Boolean">
+                </Property>
+                <Property Name="ContentStreamUpdatesCapability" Type="Edm.String">
+                </Property>
+                <Property Name="RenditionsCapability" Type="Edm.String">
+                </Property>
+                <Property Name="ChangesCapability" Type="Edm.String">
+                </Property>
+                <Property Name="AclCapability" Type="Edm.String">
+                </Property>
+                <Property Name="NewTypeSettableAttributes" Type="Edm.String">
+                </Property>
+                <Property Name="SupportedPermissions" Type="Edm.String">
+                </Property>
+                <Property Name="AclPropagation" Type="Edm.String">
+                </Property>
+                <NavigationProperty Name="toPermissions" Type="Collection(Nubexx.Ndoxx.Permission)">
+                </NavigationProperty>
+                <NavigationProperty Name="toPermissionMap" Type="Collection(Nubexx.Ndoxx.PermissionMap)">
+                </NavigationProperty>
+                <NavigationProperty Name="toCompanies" Type="Collection(Nubexx.Ndoxx.Company)">
+                </NavigationProperty>
+                <NavigationProperty Name="toBusinessUnits" Type="Collection(Nubexx.Ndoxx.BusinessUnit)">
+                </NavigationProperty>
+                <NavigationProperty Name="toDivisions" Type="Collection(Nubexx.Ndoxx.Division)">
+                </NavigationProperty>
+                <NavigationProperty Name="toDepartments" Type="Collection(Nubexx.Ndoxx.Department)">
+                </NavigationProperty>
+                <NavigationProperty Name="toLocations" Type="Collection(Nubexx.Ndoxx.Location)">
+                </NavigationProperty>
+                <NavigationProperty Name="toPositions" Type="Collection(Nubexx.Ndoxx.Position)">
+                </NavigationProperty>
+                <NavigationProperty Name="toJobClassifications" Type="Collection(Nubexx.Ndoxx.JobClassification)">
+                </NavigationProperty>
+                <NavigationProperty Name="toRoles" Type="Collection(Nubexx.Ndoxx.Role)">
+                </NavigationProperty>
+                <NavigationProperty Name="toSFPermissions" Type="Collection(Nubexx.Ndoxx.SFPermission)">
+                </NavigationProperty>
+                <NavigationProperty Name="toUsers" Type="Collection(Nubexx.Ndoxx.User)">
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Permission">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                    <PropertyRef Name="PermissionId"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32">
+                </Property>
+                <Property Name="PermissionId" Type="Edm.String">
+                </Property>
+                <Property Name="Description" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <EntityType Name="PermissionMap">
+                <Key>
+                    <PropertyRef Name="PermissionId"/>
+                </Key>
+                <Property Name="PermissionId" Type="Edm.String">
+                </Property>
+                <Property Name="Key" Type="Edm.String">
+                </Property>
+            </EntityType>
+            <Function Name="GetHistory">
+                <Parameter Name="RepositoryId" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <Parameter Name="ObjectId" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <ReturnType Type="Nubexx.Ndoxx.History"/>
+            </Function>
+            <Function Name="GetMenu">
+                <Parameter Name="ObjectId" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <Parameter Name="SelectedKey" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <Parameter Name="Mode" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <ReturnType Type="Nubexx.Ndoxx.Menu"/>
+            </Function>
+            <Function Name="GetRepositories">
+                <ReturnType Type="Nubexx.Ndoxx.Repository"/>
+            </Function>
+            <Function Name="GetCapabilities">
+                <Parameter Name="ObjectId" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <ReturnType Type="Nubexx.Ndoxx.Capability"/>
+            </Function>
+            <Function Name="CreateDocument">
+                <Parameter Name="DocumentType" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <Parameter Name="DocumentName" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <Parameter Name="FolderId" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <ReturnType Type="Nubexx.Ndoxx.Document"/>
+            </Function>
+            <Function Name="SetOpenedDate">
+                <Parameter Name="ObjectId" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <ReturnType Type="Nubexx.Ndoxx.CmisObject"/>
+            </Function>
+            <Function Name="GetNewDocument">
+                <Parameter Name="ObjectId" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <Parameter Name="DocumentName" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <Parameter Name="FolderId" Type="Edm.String" Nullable="false">
+                </Parameter>
+                <ReturnType Type="Nubexx.Ndoxx.NewDocument"/>
+            </Function>
+            <EntityContainer Name="Container">
+                <EntitySet Name="CmisObjects" EntityType="Nubexx.Ndoxx.CmisObject">
+                </EntitySet>
+                <EntitySet Name="Folders" EntityType="Nubexx.Ndoxx.Folder">
+                    <NavigationPropertyBinding Path="toCmisObjects" Target="CmisObjects"/>
+                    <NavigationPropertyBinding Path="toPermissions" Target="Permissions"/>
+                    <NavigationPropertyBinding Path="toPermissionMap" Target="PermissionMaps"/>
+                    <NavigationPropertyBinding Path="toCompanies" Target="Companies"/>
+                    <NavigationPropertyBinding Path="toBusinessUnits" Target="BusinessUnits"/>
+                    <NavigationPropertyBinding Path="toDivisions" Target="Divisions"/>
+                    <NavigationPropertyBinding Path="toDepartments" Target="Departments"/>
+                    <NavigationPropertyBinding Path="toLocations" Target="Locations"/>
+                    <NavigationPropertyBinding Path="toPositions" Target="Positions"/>
+                    <NavigationPropertyBinding Path="toJobClassifications" Target="JobClassifications"/>
+                    <NavigationPropertyBinding Path="toSFPermissions" Target="SFPermissions"/>
+                    <NavigationPropertyBinding Path="toUsers" Target="Users"/>
+                    <NavigationPropertyBinding Path="toRoles" Target="Roles"/>
+                </EntitySet>
+                <EntitySet Name="Thumbnails" EntityType="Nubexx.Ndoxx.Thumbnail">
+                </EntitySet>
+                <EntitySet Name="Companies" EntityType="Nubexx.Ndoxx.Company">
+                </EntitySet>
+                <EntitySet Name="VHCompanies" EntityType="Nubexx.Ndoxx.VHCompany">
+                </EntitySet>
+                <EntitySet Name="BusinessUnits" EntityType="Nubexx.Ndoxx.BusinessUnit">
+                </EntitySet>
+                <EntitySet Name="VHBusinessUnits" EntityType="Nubexx.Ndoxx.VHBusinessUnit">
+                </EntitySet>
+                <EntitySet Name="Divisions" EntityType="Nubexx.Ndoxx.Division">
+                </EntitySet>
+                <EntitySet Name="VHDivisions" EntityType="Nubexx.Ndoxx.VHDivision">
+                </EntitySet>
+                <EntitySet Name="Departments" EntityType="Nubexx.Ndoxx.Department">
+                </EntitySet>
+                <EntitySet Name="VHDepartments" EntityType="Nubexx.Ndoxx.VHDepartment">
+                </EntitySet>
+                <EntitySet Name="Locations" EntityType="Nubexx.Ndoxx.Location">
+                </EntitySet>
+                <EntitySet Name="VHLocations" EntityType="Nubexx.Ndoxx.VHLocation">
+                </EntitySet>
+                <EntitySet Name="Positions" EntityType="Nubexx.Ndoxx.Position">
+                </EntitySet>
+                <EntitySet Name="VHPositions" EntityType="Nubexx.Ndoxx.VHPosition">
+                </EntitySet>
+                <EntitySet Name="JobClassifications" EntityType="Nubexx.Ndoxx.JobClassification">
+                </EntitySet>
+                <EntitySet Name="VHJobClassifications" EntityType="Nubexx.Ndoxx.VHJobClassification">
+                </EntitySet>
+                <EntitySet Name="SFPermissions" EntityType="Nubexx.Ndoxx.SFPermission">
+                </EntitySet>
+                <EntitySet Name="VHSFPermissions" EntityType="Nubexx.Ndoxx.VHSFPermission">
+                </EntitySet>
+                <EntitySet Name="Users" EntityType="Nubexx.Ndoxx.User">
+                </EntitySet>
+                <EntitySet Name="VHUsers" EntityType="Nubexx.Ndoxx.VHUser">
+                </EntitySet>
+                <EntitySet Name="Roles" EntityType="Nubexx.Ndoxx.Role">
+                </EntitySet>
+                <EntitySet Name="VHRoles" EntityType="Nubexx.Ndoxx.VHRole">
+                </EntitySet>
+                <EntitySet Name="Histories" EntityType="Nubexx.Ndoxx.History">
+                </EntitySet>
+                <EntitySet Name="Menues" EntityType="Nubexx.Ndoxx.Menu">
+                </EntitySet>
+                <EntitySet Name="Capabilities" EntityType="Nubexx.Ndoxx.Capability">
+                </EntitySet>
+                <EntitySet Name="Documents" EntityType="Nubexx.Ndoxx.Document">
+                </EntitySet>
+                <EntitySet Name="NewDocuments" EntityType="Nubexx.Ndoxx.NewDocument">
+                </EntitySet>
+                <EntitySet Name="Repositories" EntityType="Nubexx.Ndoxx.Repository">
+                    <NavigationPropertyBinding Path="toPermissions" Target="Permissions"/>
+                    <NavigationPropertyBinding Path="toPermissionMap" Target="PermissionMaps"/>
+                    <NavigationPropertyBinding Path="toCompanies" Target="Companies"/>
+                    <NavigationPropertyBinding Path="toBusinessUnits" Target="BusinessUnits"/>
+                    <NavigationPropertyBinding Path="toDivisions" Target="Divisions"/>
+                    <NavigationPropertyBinding Path="toDepartments" Target="Departments"/>
+                    <NavigationPropertyBinding Path="toLocations" Target="Locations"/>
+                    <NavigationPropertyBinding Path="toPositions" Target="Positions"/>
+                    <NavigationPropertyBinding Path="toJobClassifications" Target="JobClassifications"/>
+                    <NavigationPropertyBinding Path="toSFPermissions" Target="SFPermissions"/>
+                    <NavigationPropertyBinding Path="toUsers" Target="Users"/>
+                    <NavigationPropertyBinding Path="toRoles" Target="Roles"/>
+                </EntitySet>
+                <EntitySet Name="Permissions" EntityType="Nubexx.Ndoxx.Permission">
+                </EntitySet>
+                <EntitySet Name="PermissionMaps" EntityType="Nubexx.Ndoxx.PermissionMap">
+                </EntitySet>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

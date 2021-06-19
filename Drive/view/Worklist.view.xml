@@ -1,7 +1,7 @@
 <mvc:View controllerName="com.nubexx.ndoxx.Drive.controller.Worklist" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:semantic="sap.f.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc">
-	<VBox>
+	<VBox visible="{app>/isProject}">
 
-		<!-- visible="{app>/isProject}" -->
+		<!--  -->
 
 		<VBox class="headerInfoBottom">
 			<uxap:ObjectPageHeader id="headerForTest" objectTitle="Bauprojekt 1" showTitleSelector="false" titleSelectorPress="handleTitleSelectorPress" showMarkers="false" markFavorite="true" markLocked="true" markFlagged="true" markLockedPress="handleMarkLockedPress" objectSubtitle="Riesiges Tiefbauprojekt" class="headerPadding">
@@ -139,6 +139,30 @@
 					<items>
 						<IconTabFilter text="Details">
 							<ScrollContainer vertical="true" focusable="true" height="80rem">
+								<Image
+								src="{ThumbnailUrl}"
+								decorative="false"
+								height="22.5rem"
+								width="22.5rem"
+								densityAware="false"
+								visible="{= ${IsDocument} === true }"
+								class="sapUiTinyMarginBegin sapUiTinyMarginEnd imgPreviewBorder">
+								<detailBox>
+									<LightBox>
+										<LightBoxItem
+											imageSrc="{ThumbnailUrl}"
+											alt="Alt"
+											title="{Name}"
+											subtitle="erstellt am 08.06.2021" />
+									</LightBox>
+								</detailBox>
+								<!-- Fixes HBox layout on Android Stock Browser for Android 5.0 -->
+								<layoutData>
+									<FlexItemData growFactor="1" shrinkFactor="0" />
+								</layoutData>
+							</Image>
+								
+								
 								<form:SimpleForm id="SimpleFormDisplay354" editable="false" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
 									<form:content>
 										<!-- <Label text="Object ID" />
@@ -166,6 +190,7 @@
 										<f:AvatarGroupItem initials="CL" fallbackIcon="" src="./Drive/img/Cristina.jpg" />
 									</f:AvatarGroup>
 								</VBox>
+
 							</ScrollContainer>
 						</IconTabFilter>
 						<IconTabFilter id="reports" text="Activity">

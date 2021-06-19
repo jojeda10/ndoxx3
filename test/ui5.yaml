@@ -1,0 +1,26 @@
+specVersion: '2.2'
+metadata:
+  name: 'fiorielements_openui5'
+type: application
+framework: 
+  name: OpenUI5  
+  version: "1.85.0" 
+  libraries:  
+  - name: sap.m  
+  - name: sap.ui.core  
+  - name: sap.uxap
+  - name: themelib_sap_fiori_3
+server:
+  customMiddleware:
+  - name: fiori-tools-proxy
+    afterMiddleware: compression
+    configuration:
+      ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+      backend:
+      - path: /browse
+        url: http://localhost:4004
+  - name: fiori-tools-appreload
+    afterMiddleware: compression
+    configuration:
+     port: 35729
+     path: webapp
