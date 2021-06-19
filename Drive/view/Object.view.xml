@@ -1,0 +1,23 @@
+<mvc:View controllerName="com.nubexx.ndoxx.Drive.controller.Object" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:semantic="sap.f.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:nubexx="com.nubexx.ndoxx.Drive.controls" class="sapUiSizeCompact">
+	<Page id="objectContent" showHeader="false" showNavButton="true" navButtonPress="onNavBack" enableScrolling="false">
+		<subHeader>
+			<OverflowToolbar >
+			<!-- <customData>
+				<core:CustomData key="toolbarStyle" value="pdf" writeToDom="{= ${Name} === 'prueba.docx'}"/>
+			</customData> -->
+
+				<Button icon="sap-icon://nav-back" press="onNavBack" type="Transparent" class="customToolbarButtonIconWhite" />
+				<ToolbarSpacer />
+				<Button text="Rename" press="onRenamePress" type="Transparent"  class="customToolbarButtonWhite"  />
+				<Button text="Delete" press="onFileDelete" type="Transparent" class="customToolbarButtonWhite" />
+				<Button text="Save as" type="Transparent" class="customToolbarButtonWhite"/>
+				<Button text="Move to" press="onMoveToPress" type="Transparent" class="customToolbarButtonWhite" />
+				<Button text="Share" press="onSharePress" type="Transparent" class="customToolbarButtonWhite" />
+				<Button icon="sap-icon://unfavorite" visible="{= !${IsStarred} &amp;&amp; ${capability>/CanShare}}" press="onSetStarred" type="Transparent" class="customToolbarButtonIconWhite" />
+				<Button icon="sap-icon://favorite" visible="{= ${IsStarred} === true &amp;&amp; ${capability>/CanShare}}" press="onSetStarred"  type="Transparent" class="customToolbarButtonIconWhite" />
+			</OverflowToolbar>
+		</subHeader>
+		<content>
+		</content>
+	</Page>
+</mvc:View>

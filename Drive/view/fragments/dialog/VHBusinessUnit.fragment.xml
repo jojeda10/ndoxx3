@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Business Units"
+		class="sapUiPopupWithPadding"
+		items="{path: '/VHBusinessUnits'}"
+		search="_handleValueHelpSearch"
+		confirm="VHBusinessUnitsDialogClose"
+		cancel="VHBusinessUnitsDialogClose"
+		growing="false"
+		multiSelect="true">
+		<StandardListItem
+			title="{Name}"
+			description="{Id}" />
+	</SelectDialog>
+</core:FragmentDefinition>

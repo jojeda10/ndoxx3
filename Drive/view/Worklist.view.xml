@@ -1,0 +1,241 @@
+<mvc:View controllerName="com.nubexx.ndoxx.Drive.controller.Worklist" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap" displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:semantic="sap.f.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc">
+	<VBox visible="{app>/isProject}">
+
+		<!--  -->
+
+		<VBox class="headerInfoBottom">
+			<uxap:ObjectPageHeader id="headerForTest" objectTitle="Bauprojekt 1" showTitleSelector="false" titleSelectorPress="handleTitleSelectorPress" showMarkers="false" markFavorite="true" markLocked="true" markFlagged="true" markLockedPress="handleMarkLockedPress" objectSubtitle="Riesiges Tiefbauprojekt" class="headerPadding">
+				<uxap:actions>
+					<uxap:ObjectPageHeaderActionButton icon="sap-icon://write-new" text="Notiz erfassen" tooltip="Notiz erfassen" type="Transparent" />
+
+
+					<uxap:ObjectPageHeaderActionButton icon="sap-icon://collaborate" text="Shared with me" tooltip="Shared with me" type="Transparent" />
+					<uxap:ObjectPageHeaderActionButton icon="sap-icon://history" text="Recent" tooltip="Recent" type="Transparent" />
+					<uxap:ObjectPageHeaderActionButton icon="sap-icon://favorite" text="Starred" importance="Medium" tooltip="Starred" type="Transparent" />
+					<uxap:ObjectPageHeaderActionButton icon="sap-icon://delete" text="Trash" tooltip="Trashed" type="Transparent" />
+				</uxap:actions>
+			</uxap:ObjectPageHeader>
+			<VBox id="block" visible="{app>/isToggled}" class="headerInfo headerPadding">
+				<HBox>
+					<VBox>
+						<ObjectAttribute title="Projektnummer" text="10001397" />
+						<ObjectAttribute title="Projekttyp" text="Baustruktur" />
+						<ObjectAttribute title="Projektleiter" text="Udo Klein" active="true" />
+					</VBox>
+					<VBox class="sapUiMediumMarginBegin">
+						<ObjectAttribute title="Projektbegin" text="12.01.2021" />
+						<ObjectAttribute title="Projektende" text="30.11.2022" />
+						<ObjectAttribute title="Standort" text="Nürnberg" />
+					</VBox>
+					<VBox class="sapUiMediumMarginBegin">
+						<ObjectAttribute title="Werk" text="1234" />
+						<ObjectAttribute title="Kostenstelle" text="99000022" />
+						<ObjectAttribute title="Profitcenter" text="AB30" />
+					</VBox>
+					<VBox class="sapUiMediumMarginBegin">
+						<HBox>
+							<Label text="Status:" />
+							<ObjectStatus text="Aktiv" inverted="true" active="true" state="Success" class="sapUiTinyMarginBegin" />
+						</HBox>
+
+						<Label text="Fortschritt:" />
+						<ProgressIndicator percentValue="30" displayValue="30%" />
+					</VBox>
+					<HeaderContainer scrollStep="200" id="container1" class="sapUiMediumMarginBegin">
+						<VBox>
+							<Label text="Fehlende Dokumente"></Label>
+							<NumericContent value="12" valueColor="Error" press="onMissingDocumentsPress"></NumericContent>
+						</VBox>
+						<VBox>
+							<Label text="Veraltete Dokumente" press="onOutdatedDocumentsPress"></Label>
+							<NumericContent value="2" valueColor="Critical" />
+						</VBox>
+						<VBox>
+							<Label text="Laufende Flows"></Label>
+							<NumericContent value="7" valueColor="Neutral" icon="sap-icon://combine" press="onRunningFlowsPress" />
+						</VBox>
+					</HeaderContainer>
+
+				</HBox>
+
+
+			</VBox>
+		</VBox>
+		<Button icon="sap-icon://navigation-down-arrow" class="sapMBtnBase sapMBtn sapFDynamicPageToggleHeaderIndicator sapFDynamicPageHeaderPinButton" press="onHeaderToggle"></Button>
+	</VBox>
+	<l:DynamicSideContent id="DynamicSideContent" class="sapUiDSCExplored sapUiContentPadding" containerQuery="true" sideContentFallDown="BelowM" breakpointChanged="handleBreakpointChangeEvent">
+		<VBox id="idDrive" width="100%" class="containerUpload">
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.nubexx.ndoxx.Drive.view.fragments.dialog.FilesProgressIndicator" type="XML" />
+			<OverflowToolbar>
+				<HBox class="sapUiSmallMarginBegin">
+					<Breadcrumbs id="breadcrumbs" class="sapUiTinyMarginTop" currentLocationText="{history>/currentLocationText}" links="{history>/history}" visible="{= ${app>/selection} === 'folders' ? true : false}">
+						<Link press="onBreadcrumbPress" text="{history>name}" />
+					</Breadcrumbs>
+					<Text id="selectionText" text="Results" visible="{= ${app>/selection} === 'folders' ? false : true}"></Text>
+				</HBox>
+				<ToolbarSpacer />
+				<SegmentedButton selectedKey="kids" selectionChange="onDisplayTypeChanged">
+					<items>
+						<SegmentedButtonItem key="grid" icon="sap-icon://grid" />
+						<SegmentedButtonItem key="list" icon="sap-icon://menu2" />
+					</items>
+				</SegmentedButton>
+				<Button id="createNewButton" text="New" icon="sap-icon://add" type="Emphasized" press="onCreateNew" />
+				<Button text="" type="Transparent" icon="sap-icon://refresh" press="onRefreshAll" />
+				<Button text="" type="Transparent" icon="sap-icon://message-information" press="onInfoDisplay" enabled="{app>/infoDisplayActive}" />
+			</OverflowToolbar>
+			<VBox visible="{= ${app>/displayType} === 'list' }">
+				<Table id="idListHierarchyView" class="hierarchyTable" mode="None" selectionChange="onTableSelectionChange" busyIndicatorDelay="0" enableBusyIndicator="true" backgroundDesign="{appState>/backgroundDesign}">
+					<columns>
+						<Column hAlign="Center" width="3em"></Column>
+						<Column></Column>
+						<Column width="7em" hAlign="Center"></Column>
+					</columns>
+				</Table>
+			</VBox>
+			<VBox id="grids">
+				<VBox>
+					<VBox visible="{currentFolder>/HasChildrenFolders}">
+						<FlexBox alignItems="Start" justifyContent="SpaceBetween">
+							<Text text="Folders" class="sapUiTinyMarginTop sapUiSmallMarginBegin"></Text>
+							<Button icon="sap-icon://sort" type="Transparent" class="sortButton"></Button>
+						</FlexBox>
+						<f:GridContainer id="gridFolder" snapToRow="true" class="gridUpload">
+							<f:layout>
+								<f:GridContainerSettings rowSize="0.5rem" columnSize="5rem" gap="1rem" />
+							</f:layout>
+							<f:layoutS>
+								<f:GridContainerSettings rowSize="0.5rem" columnSize="5rem" gap="0.5rem" />
+							</f:layoutS>
+						</f:GridContainer>
+					</VBox>
+				</VBox>
+				<VBox>
+					<FlexBox alignItems="Start" justifyContent="SpaceBetween" visible="{currentFolder>/HasChildrenDocuments}">
+						<Text text="Documents" class="sapUiSmallMarginBegin"></Text>
+						<Button icon="sap-icon://sort" type="Transparent" class="sortButton"></Button>
+					</FlexBox>
+
+					<f:GridContainer id="gridUpload" snapToRow="true" class="gridUpload">
+						<f:layout>
+							<f:GridContainerSettings rowSize="5rem" columnSize="5rem" gap="1rem" />
+						</f:layout>
+						<f:layoutS>
+							<f:GridContainerSettings rowSize="5rem" columnSize="5rem" gap="0.5rem" />
+						</f:layoutS>
+					</f:GridContainer>
+				</VBox>
+			</VBox>
+		</VBox>
+		<l:sideContent>
+			<VBox id="idObjectDetails">
+				<Toolbar>
+					<core:Icon id="idObjectIcon" src="{path: 'DocumentType', formatter: '.formatter.ndoxxIconType'}" size="1.5rem" class="sapUiTinyMarginBegin sapUiTinyMarginTop" />
+					<Title text="{Name}" class="sapUiTinyMarginTop" />
+					<ToolbarSpacer />
+					<Button type="Transparent" press="onInfoClose" visible="{= !${media>/phone}}" icon="sap-icon://decline" />
+				</Toolbar>
+				<IconTabBar id="idIconTabBar" select="handleIconTabBarSelect" headerBackgroundDesign="Transparent">
+					<items>
+						<IconTabFilter text="Details">
+							<ScrollContainer vertical="true" focusable="true" height="80rem">
+								<Image
+								src="{ThumbnailUrl}"
+								decorative="false"
+								height="22.5rem"
+								width="22.5rem"
+								densityAware="false"
+								visible="{= ${IsDocument} === true }"
+								class="sapUiTinyMarginBegin sapUiTinyMarginEnd imgPreviewBorder">
+								<detailBox>
+									<LightBox>
+										<LightBoxItem
+											imageSrc="{ThumbnailUrl}"
+											alt="Alt"
+											title="{Name}"
+											subtitle="erstellt am 08.06.2021" />
+									</LightBox>
+								</detailBox>
+								<!-- Fixes HBox layout on Android Stock Browser for Android 5.0 -->
+								<layoutData>
+									<FlexItemData growFactor="1" shrinkFactor="0" />
+								</layoutData>
+							</Image>
+								
+								
+								<form:SimpleForm id="SimpleFormDisplay354" editable="false" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+									<form:content>
+										<!-- <Label text="Object ID" />
+								<Text text="{ObjectId}" />								
+								<Label text="Name" />
+								<Text  text="{Name}" /> -->
+										<Label text="Erstellungsdatum" />
+										<Text text="08.06.2021" />
+										<Label text="Erstellt von" />
+										<Text text="Alexander Herbst" />
+										<Label text="Eigentumer" />
+										<Text text="Jaime Ojeda González" />
+										<Label text="zuletzt geöffnet am" />
+										<Text text="09.06.2021 - 12:44:10" />
+										<Label text="zuletzt geöffnet von" />
+										<Text text="Jaime Ojeda González" />
+									</form:content>
+								</form:SimpleForm>
+								<VBox class="sapUiSmallMarginBegin">
+									<Label text="Geteilt mit:"></Label>
+									<f:AvatarGroup groupType="Group" avatarDisplaySize="M" press="onGroupPress">
+										<f:AvatarGroupItem initials="AH" fallbackIcon="" src="./Drive/img/Alex.jpg" />
+										<f:AvatarGroupItem initials="DH" fallbackIcon="" src="./Drive/img/Dirk.jpg" />
+										<f:AvatarGroupItem initials="JO" fallbackIcon="" src="./Drive/img/Jaime.jpg" />
+										<f:AvatarGroupItem initials="CL" fallbackIcon="" src="./Drive/img/Cristina.jpg" />
+									</f:AvatarGroup>
+								</VBox>
+
+							</ScrollContainer>
+						</IconTabFilter>
+						<IconTabFilter id="reports" text="Activity">
+							<List>
+								<CustomListItem class="sapUiTinyMarginBottom activityItemBorder" >
+									<VBox class="sapUiTinyMarginBottom activityItemBorder">
+										<Label text="09.06.2021"></Label>
+										<HBox class="sapUiTinyMarginBottom">
+											<f:AvatarGroupItem initials="AH" fallbackIcon="" src="./Drive/img/Alex.jpg" class="sapUiTinyMarginEnd"/>
+											<VBox >
+												<Text text="hat 2 Dokumente hochgeladen"  class="sapUiTinyMarginBottom"></Text>
+												<List>
+													<CustomListItem >
+														<HBox>
+														<core:Icon src="sap-icon://ppt-attachment" size="1rem" class="sapUiTinyMarginEnd ndoxxTilePowerPointIcon"/> 
+														<Link text="Docu.ppt"></Link>	
+													</HBox>	
+													</CustomListItem>
+													<CustomListItem >
+														<HBox>
+														<core:Icon src="sap-icon://excel-attachment" size="1rem" class="sapUiTinyMarginEnd ndoxxTileExcelIcon"/> 
+														<Link text="Forecast.xlsx"></Link>	
+													</HBox>	
+													</CustomListItem>
+												</List>
+											</VBox>
+										</HBox>
+									</VBox>
+								</CustomListItem>
+								<CustomListItem class="sapUiTinyMarginBottom activityItemBorder">
+									<VBox class="sapUiTinyMarginBottom activityItemBorder">
+										<Label text="08.06.2021"></Label>
+										<HBox class="sapUiTinyMarginBottom">
+											<f:AvatarGroupItem initials="JO" fallbackIcon="" src="./Drive/img/Jaime.jpg" class="sapUiTinyMarginEnd"/>
+											<VBox>
+												<Text text="hat den Ordner angelegt"  class="sapUiTinyMarginBottom"></Text>
+											</VBox>
+										</HBox>
+									</VBox>
+								</CustomListItem>
+							</List>
+						</IconTabFilter>
+					</items>
+				</IconTabBar>
+			</VBox>
+		</l:sideContent>
+	</l:DynamicSideContent>
+</mvc:View>
