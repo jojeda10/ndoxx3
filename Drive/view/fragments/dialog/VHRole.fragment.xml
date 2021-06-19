@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Roles"
+		class="sapUiPopupWithPadding"
+		items="{path: '/VHRoles'}"
+		search="_handleValueHelpSearch"
+		confirm="VHRolesDialogClose"
+		cancel="VHRolesDialogClose"
+		growing="false"
+		multiSelect="true">
+		<StandardListItem
+			title="{Name}"
+			description="{Id}" />
+	</SelectDialog>
+</core:FragmentDefinition>

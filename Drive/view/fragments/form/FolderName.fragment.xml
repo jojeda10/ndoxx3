@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Label text="Folder Name:" class="sapUiTinyMarginEnd"/>
+	<Text id="textName" text="{Name}" class="sapUiTinyMarginEnd"/>
+	<core:Icon src="sap-icon://edit" tooltip="Rename Folder" color="Default" press="showRenameFolderDialog"/>
+</core:FragmentDefinition>

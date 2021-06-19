@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:core="sap.ui.core">
+	<Menu itemSelected="onNewMenuAction">
+		<MenuItem text="Upload file" icon="sap-icon://upload-to-cloud"/>
+		<MenuItem text="Folder" icon="sap-icon://folder-blank" startsSection="true"/>
+		<MenuItem text="Document" icon="sap-icon://document" >
+			<items>
+                <MenuItem text="Word" icon="sap-icon://doc-attachment"/>
+                <MenuItem text="Excel" icon="sap-icon://excel-attachment"/>
+                <MenuItem text="PowerPoint" icon="sap-icon://ppt-attachment"/>
+			</items>
+		</MenuItem>
+	</Menu>
+</core:FragmentDefinition>

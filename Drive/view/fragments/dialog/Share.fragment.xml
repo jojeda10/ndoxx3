@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+<Dialog title="Share" contentWidth="60px">
+	<subHeader></subHeader>
+	<content>
+		<VBox class="sapUiSmallMargin">
+		<Label text="Enter a name" width="100%" labelFor="multiInput"/>
+		<MultiInput width="100%"
+	        maxLength="50px"
+			id="multiInput"
+			suggestionItems="{
+				path: '/VHUsers'
+			}"
+			valueHelpRequest="handleShareValueHelp">
+			<core:Item key="{Id}" text="{DefaultFullName}" />
+		</MultiInput>
+		</VBox>
+		<VBox class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginTop">
+		<Label text="Comment" width="100%" labelFor="multiInput"/>
+		<TextArea id="comment" value="" growing="true" growingMaxLines="7" width="100%" showExceededText="true" maxLength="255" rows="5"/>
+		</VBox>		
+	</content>
+	<beginButton></beginButton>
+	<endButton></endButton>
+	<buttons>
+		<Button text="Share" tap="onShare" press="onShare"></Button>
+		<Button text="Cancel" tap="onShareCancel" press="onShareCancel"></Button>
+	</buttons>
+</Dialog>
+</core:FragmentDefinition>

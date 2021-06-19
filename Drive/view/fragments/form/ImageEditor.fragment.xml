@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:img="sap.suite.ui.commons.imageeditor">
+			<img:ImageEditorContainer  enabledButtons="Crop" mode="Crop" undo="onUndo">
+				<img:ImageEditor loaded="onImageLoaded"/>
+				<img:customToolbarControls>
+					<!--<unified:FileUploader change="onFileChange"/>-->
+					<!--<Button text="Upload" press="onUploadPress" blocked="{/blocked}"/>-->
+					<!--<Button type="Emphasized" text="Save As" press="onSaveAsPress" blocked="{/blocked}"/>-->
+				</img:customToolbarControls>
+				<img:customResizeItems>
+					<img:CustomSizeItem width="1920" height="1200" label="1920 x 1200" relative="false"/>
+					<img:CustomSizeItem width="1600" height="900" label="1600 x 900" relative="false"/>
+					<img:CustomSizeItem width="1440" height="900" label="1440 x 900" relative="false"/>
+					<img:CustomSizeItem width="1024" height="768" label="1024 x 768" relative="false"/>
+					<img:CustomSizeItem width="2" height="2" label="double size" relative="true"/>
+					<img:CustomSizeItem width="0.5" height="0.5" label="half size" relative="true"/>
+					<img:CustomSizeItem width="2" height="1" label="make wider" relative="true"/>
+					<img:CustomSizeItem width="1" height="2" label="make higher" relative="true"/>
+				</img:customResizeItems>
+				<img:customRectangleCropItems>
+					<img:CustomSizeItem width="16" height="9" label="16:9" relative="true"/>
+					<img:CustomSizeItem width="16" height="10" label="16:10" relative="true"/>
+					<img:CustomSizeItem width="1" height="1" label="1:1" relative="true"/>
+					<img:CustomSizeItem width="4" height="3" label="4:3" relative="true"/>
+				</img:customRectangleCropItems>
+				<img:customEllipseCropItems>
+					<img:CustomSizeItem width="1" height="1" label="1:1" relative="true"/>
+					<img:CustomSizeItem width="2" height="1" label="2:1" relative="true"/>
+				</img:customEllipseCropItems>
+			</img:ImageEditorContainer>
+</core:FragmentDefinition>
