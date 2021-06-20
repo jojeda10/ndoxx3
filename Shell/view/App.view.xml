@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.nubexx.ndoxx.Shell.controller.App" 	 class="sapUiSizeCompact" displayBlock="true" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc">
+<mvc:View id="idShellRoot" controllerName="com.nubexx.ndoxx.Shell.controller.App" 	 class="sapUiSizeCompact" displayBlock="true" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc">
 	<!-- <SplitApp id="app"/> -->
 	<tnt:ToolPage id="toolPage">
 		<tnt:header>

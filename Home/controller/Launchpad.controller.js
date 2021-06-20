@@ -36,13 +36,58 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		},
 
 		onProjectSelect: function () {
-			window.oRouter.navTo("drive", {
+			this._getShellRouter().navTo("drive", {
 				viewPattern: "worklist"
 			});
 			window.bIsProject = true;
 		},	
 
+		_getShellRouter: function() {
+			return sap.ui.getCore().byId(this.getView().getParent().getParent().getParent()._sOwnerId + "---app").getController().getOwnerComponent().getRouter();
+		},
+
+		_validate_token: function() {
+			var sToken = localStorage.getItem("token");
+			/* eslint-enable sap-no-localstorage */
+			//Call Backend and validate token
+
+			this._goToLoginPage();
+
+			//this._goToHomePage();
+			return true;
+		},
+
 		_onLaunchpadMatched: function (oEvent) {
+
+			//If valid token then continue otherwise go to account page
+			var sToken = localStorage.getItem("token");
+                sToken = "397";
+
+			this._validate_token(sToken);
+			
+			// if (this_validate_token(sToken)) 
+			// //if valid account id then go to login page otherwise go to account page
+
+
+		},
+
+		_goToLoginPage: function (oEvent) {
+			 var sAccountId = localStorage.getItem("accountId");
+			 /* eslint-enable sap-no-localstorage */
+			 if (sAccountId && sAccountId !== "") {
+			 	this._getShellRouter().navTo("loginPage", {
+			 		accountId: sAccountId
+			 	});
+			 } else {
+			 	// this._getShellRouter().navTo("loginPage", {
+			 	// 	accountId: "777777777777"
+			 	// });
+			 	this._getShellRouter().navTo("accountPage");
+			 }
+		},
+
+		_goToHomePage: function (oEvent) {
+
 			this.getView().byId("reports").destroyContent();
 			Fragment.load({
 				name: "com.nubexx.ndoxx.Home.view.fragments.tabs.Kpi",

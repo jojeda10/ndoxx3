@@ -1,0 +1,29 @@
+<mvc:View controllerName="com.nubexx.ndoxx.Shell.controller.LoginPage" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page showHeader="false">
+		<content>
+			<VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center">
+				<VBox width="16rem">
+					<Image width="100%" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Hochtief_logo.svg/1280px-Hochtief_logo.svg.png"   tooltip="Ndoxx image" class="sapUiTinyMarginBottom"/>
+					<!--<FormattedText htmlText="{i18n>msgAnotherAccountLogin}"/>-->
+					<!--<VBox>-->
+					<!--<FlexBox width="100%" alignItems="Start" >-->
+					<Text width="100%" text="Login to use your account with {app>/accountId}"/>
+					<!--		<FlexItemData order="1" />-->
+					<!--	</Text> -->
+					<!--<Link text="enter a different account ID" press="resetAccount" />-->
+					<Link width="100%" text="Enter a different account ID" press="closeSesion" class="sapUiTinyMarginBottom"/>
+					<!--		<FlexItemData order="2" />-->
+					<!--	</Link>-->
+					<!--</FlexBox>-->
+					<!--</VBox>-->
+					<Input id="inpEmailUser" liveChange="onLiveChangeLogin" width="100%" placeholder="User ID" submit="onLogin"></Input>
+					<Input id="inpPassword" liveChange="onLiveChangeLogin" width="100%" placeholder="Password" type="Password" submit="onLogin"></Input>
+					<Button id="btnLogin" width="100%" enabled="false" text="Login" type="Emphasized" press="onLogin"></Button>
+				</VBox>
+			</VBox>
+		</content>
+		<footer>
+			<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.nubexx.ndoxx.Shell.view.fragments.Footer" type="XML"/>
+		</footer>
+	</Page>
+</mvc:View>

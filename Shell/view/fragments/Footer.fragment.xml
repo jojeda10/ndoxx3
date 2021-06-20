@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Bar>
+		<contentRight>
+			<Image height="100%" src="https://www.nubexx.com/typo3conf/ext/nubexx_base/Resources/Public/Images/Logo.svg" tooltip="Ndoxx image"/>
+		</contentRight>
+	</Bar>
+</core:FragmentDefinition>

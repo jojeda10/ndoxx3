@@ -13,9 +13,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/core/Fragment", "../model/f
 			this.getOwnerComponent().getRouter().getRoute("default").attachPatternMatched(this._onDefaultMatched, this);
 			this.getOwnerComponent().getRouter().getRoute("home").attachPatternMatched(this._onHomeMatched, this);
 			this.getOwnerComponent().getRouter().getRoute("drive").attachPatternMatched(this._onDriveMatched, this);
+			this.getOwnerComponent().getRouter().getRoute("accountPage").attachPatternMatched(this._onAccountMatched, this);
+			// window.oRouter = this.getOwnerComponent()
+			// .getRouter();
 
-			window.oRouter = this.getOwnerComponent()
-			.getRouter();
 		},
 
 		_onDefaultMatched: function (oEvent) {
@@ -31,6 +32,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/core/Fragment", "../model/f
 			if (this.getView().byId("toolPage").getSideContent()) {
 				this.getView().byId("toolPage").getSideContent().destroy();
 			}
+		},
+
+		_onAccountMatched: function (oEvent) {
+
 		},
 		
 		onNavBack: function (oEvent) {

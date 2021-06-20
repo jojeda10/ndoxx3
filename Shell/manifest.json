@@ -10,7 +10,17 @@
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"resources": "resources.json",
-		"ach": "ach"
+		"ach": "ach",
+		"dataSources": {
+			"mainService": {
+				"uri": "http://localhost:9494/NdoxxProvisioning/NdoxxProvisioning.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
 	},
 
 	"sap.ui": {
@@ -55,6 +65,16 @@
 				"settings": {
 					"bundleName": "com.nubexx.ndoxx.Shell.i18n.i18n"
 				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"operationMode": "Server",
+					"groupId": "$direct",
+					"synchronizationMode": "None",
+					"autoExpandSelect": true
+				}
 			}
 		},
 		"resources": {
@@ -79,7 +99,22 @@
 				"pattern": "home/:viewPattern:",
 				"name": "home",
 				"target": ["home"]
-			}, {
+			}, 
+			{
+				"pattern": "accountPage",
+				"name": "accountPage",
+				"target": [
+					"accountPage"
+				]
+			},
+			{
+				"pattern": "accountId/{accountId}",
+				"name": "loginPage",
+				"target": [
+					"loginPage"
+				]
+			},
+			{
 				"pattern": "drive/:viewPattern:",
 				"name": "drive",
 				"target": ["drive"]
@@ -95,6 +130,18 @@
 					"viewName": "Home",
 					"viewId": "home",
 					"viewLevel": 1
+				},
+				"accountPage": {
+					"viewName": "AccountPage",
+					"viewId": "accountPage",
+					"viewLevel": 2,
+					"title": "{i18n>worklistViewTitle}"
+				},
+				"loginPage": {
+					"viewName": "LoginPage",
+					"viewId": "loginPage",
+					"viewLevel": 2,
+					"title": "{i18n>objectViewTitle}"
 				},
 				"home": {
 					"viewName": "Home",

@@ -8,9 +8,10 @@ sap.ui.define([
 
 		setAppModel: function () {
 			var oModel = new JSONModel({
-				"isProject": false
-			}
-			);
+				"isProject": false,
+				"accountId": ""
+			});
+			return oModel;
 		},
 		createDeviceModel: function() {
 			var oModel = new JSONModel(Device);
