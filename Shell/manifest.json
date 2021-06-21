@@ -13,7 +13,7 @@
 		"ach": "ach",
 		"dataSources": {
 			"mainService": {
-				"uri": "http://localhost:9494/NdoxxProvisioning/NdoxxProvisioning.svc/",
+				"uri": "http://localhost:9090/NdoxxService/NdoxxService.svc/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "4.0",

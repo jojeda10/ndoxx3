@@ -12,7 +12,7 @@
 			</VBox>
 		</content>
 		<footer>
-			<core:Fragment xmlns:core="sap.ui.core" fragmentName="com.nubexx.ndoxx.Shell.view.fragments.Footer" type="XML"/>
+			<!-- <core:Fragment xmlns:core="sap.ui.core" fragmentName="com.nubexx.ndoxx.Shell.view.fragments.Footer" type="XML"/> -->
 		</footer>
 	</Page>
 </mvc:View>

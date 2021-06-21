@@ -1,12 +1,12 @@
 <mvc:View id="idShellRoot" controllerName="com.nubexx.ndoxx.Shell.controller.App" 	 class="sapUiSizeCompact" displayBlock="true" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc">
 	<!-- <SplitApp id="app"/> -->
-	<tnt:ToolPage id="toolPage">
-		<tnt:header>
-			<!--<Page id="HomePage" class="sapUiResponsiveContentPadding">-->
+	<tnt:ToolPage id="toolPage" >
+		<tnt:header >
+			<!--<Page id="HomePage" class="sapUiResponsiveContentPadding" >>-->
 			<!--	<customHeader>-->
 			<f:ShellBar id="idShellbar" title="Home" secondTitle="Hochtief Deutschland" showNavButton="{app>/isProject}" navButtonPressed="onNavBack"
 			homeIcon="https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Hochtief_logo.svg/1280px-Hochtief_logo.svg.png" 
-			showCopilot="false" showSearch="false" showNotifications="true" showProductSwitcher="false" notificationsNumber="5">
+			showCopilot="false" showSearch="false" showNotifications="true" showProductSwitcher="false" notificationsNumber="5" visible="{app>/headerVisbile}">
 				<!--<f:additionalContent>-->
 				<!--	<Button icon="sap-icon://menu2" type="Transparent" press="onPressMenu" class="btnMenu"/>-->
 				<!--</f:additionalContent>-->

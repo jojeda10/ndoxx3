@@ -9,7 +9,8 @@ sap.ui.define([
 		setAppModel: function () {
 			var oModel = new JSONModel({
 				"isProject": false,
-				"accountId": ""
+				"accountId": "",
+				"headerVisbile": true
 			});
 			return oModel;
 		},

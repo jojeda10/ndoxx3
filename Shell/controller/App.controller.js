@@ -14,12 +14,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/core/Fragment", "../model/f
 			this.getOwnerComponent().getRouter().getRoute("home").attachPatternMatched(this._onHomeMatched, this);
 			this.getOwnerComponent().getRouter().getRoute("drive").attachPatternMatched(this._onDriveMatched, this);
 			this.getOwnerComponent().getRouter().getRoute("accountPage").attachPatternMatched(this._onAccountMatched, this);
-			// window.oRouter = this.getOwnerComponent()
-			// .getRouter();
-
+			this.getOwnerComponent().getRouter().getRoute("loginPage").attachPatternMatched(this._onLoginMatched, this);
 		},
 
 		_onDefaultMatched: function (oEvent) {
+			this.getView().getModel("app").setProperty("/headerVisbile", true);
 			this.getOwnerComponent()
 				.getRouter()
 				.navTo("home", {
@@ -28,6 +27,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/core/Fragment", "../model/f
 		},
 
 		_onHomeMatched: function (oEvent) {
+			this.getView().getModel("app").setProperty("/headerVisbile", true);
 			this.getView().byId("idShellbar").setShowNavButton(false);
 			if (this.getView().byId("toolPage").getSideContent()) {
 				this.getView().byId("toolPage").getSideContent().destroy();
@@ -35,7 +35,17 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/core/Fragment", "../model/f
 		},
 
 		_onAccountMatched: function (oEvent) {
+			if (this.getView().byId("toolPage").getSideContent()) {
+				this.getView().byId("toolPage").getSideContent().destroy();
+			}
+			this.getView().getModel("app").setProperty("/headerVisbile", false);
+		},
 
+		_onLoginMatched: function (oEvent) {
+			if (this.getView().byId("toolPage").getSideContent()) {
+				this.getView().byId("toolPage").getSideContent().destroy();
+			}
+			this.getView().getModel("app").setProperty("/headerVisbile", false);
 		},
 		
 		onNavBack: function (oEvent) {
@@ -43,6 +53,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/core/Fragment", "../model/f
 		},	
 
 		_onDriveMatched: function (oEvent) {
+			this.getView().getModel("app").setProperty("/headerVisbile", true);
 			if (!window.bIsProject) {
 				this.getView().byId("idShellbar").setShowNavButton(false);
 				Fragment.load({
@@ -60,6 +71,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/core/Fragment", "../model/f
 		},
 
 		_onProjectMatched: function (oEvent) {
+			this.getView().getModel("app").setProperty("/headerVisbile", true);
 			if (this.getView().byId("toolPage").getSideContent()) {
 				this.getView().byId("toolPage").getSideContent().destroy();
 			}

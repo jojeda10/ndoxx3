@@ -79,9 +79,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			 		accountId: sAccountId
 			 	});
 			 } else {
-			 	// this._getShellRouter().navTo("loginPage", {
-			 	// 	accountId: "777777777777"
-			 	// });
 			 	this._getShellRouter().navTo("accountPage");
 			 }
 		},
